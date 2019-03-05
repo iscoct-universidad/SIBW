@@ -1,21 +1,13 @@
 #descripcion {
     grid-area: img;
     padding-left: 10px;
-    display: grid;
-    grid-template-columns: 80% 20%;
 }
 
 #imagenes {
+    float: right;
     display: grid;
     grid-template-rows: auto auto;
-}
-
-#imagen1 {
-    float: right;
-}
-
-#imagen2 {
-    float: right;
+    padding-right: 10px;
 }
 
 #organizadorEvento {
@@ -32,6 +24,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    margin-bottom: 10px;
     padding: 5px;
     display: block;
 }
