@@ -1,0 +1,55 @@
+#imagenAvion {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    float: left;
+    padding: 30px;
+}
+
+#pie {
+    margin-top: 10px;
+    text-align: center;
+    overflow: auto;
+}
+
+.borde {
+    border-style: solid;
+    border-color: darkslategrey;
+    border-radius: 30px;
+}
+
+#cabecera {
+    height: 250px;
+}
+
+#menuCabecera {
+    list-style-type: none;
+}
+
+.elementoMenu {
+    float: left;
+    padding: 10px;
+}
+
+#cabeceraPrincipal {
+    padding: 10px;
+}
+
+#principal {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-areas: 'nav img img img img img img img img'
+}
+
+#navegacionLateral {
+    list-style-type: none;
+    height: inherit;
+    float: left;
+    margin-right: 10px;
+    grid-area: nav;
+}
+
+#listaLateral {
+    list-style-type: none;
+}

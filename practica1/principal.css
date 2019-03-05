@@ -1,0 +1,20 @@
+h2.ciudad {
+    text-align: center;
+}
+
+.imagenes {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding: 5px;
+    display: block;
+}
+
+#conjuntoEventos {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    height: inherit;
+    grid-area: img;
+}
