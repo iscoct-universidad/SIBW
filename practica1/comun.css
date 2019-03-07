@@ -20,6 +20,7 @@
 
 #cabecera {
     height: 250px;
+    background-image: linear-gradient(to bottom right, red, yellow);
 }
 
 #menuCabecera {
