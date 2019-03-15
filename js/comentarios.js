@@ -41,13 +41,25 @@ function addComment() {
     let email = document.getElementsByName("email")[0].value;
     let autor = document.getElementsByName("name")[0].value;
     let realEmail = email.indexOf("@");
+    let condicionTexto = false;
+    let condicionAutor = false;
+    let condicionEmail = false;
+
+    if(texto != null)
+        condicionTexto = (texto.length > 0) ? true : false;
+
+    if(email != null)
+        condicionEmail = (email.length > 0) ? true : false;
+
+    if(autor != null)
+        condicionAutor = (autor.length > 0) ? true : false;
 
     console.log("Texto: " + texto);
     console.log("email: " + email);
     console.log("Autor: " + autor);
     console.log("Real email: " + realEmail);
 
-    if(email != null && texto != null && autor != null && realEmail > -1) {
+    if(condicionTexto && condicionEmail && condicionAutor && realEmail > -1) {
         const palabrasProhibidas = ["palabra1", "palabra2", "palabra3", "palabra4",
         "palabra5", "palabra6", "palabra7", "palabra8", "palabra9", "palabra10"];
         let encontrado = false;
@@ -57,8 +69,7 @@ function addComment() {
         for(let palabra of palabrasProhibidas)
             texto = texto.replace(palabra, "*");
 
-        if(! encontrado)
-            addBloqueComentario(autor, texto);
+        addBloqueComentario(autor, texto);
 
     } else {
         alert("No ha introducido todos los campos en el formulario o el email no es válido");
