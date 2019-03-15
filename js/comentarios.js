@@ -1,6 +1,7 @@
 function showComments() {
     console.log("Se llama correctamente a la función");
 
+    document.getElementById("principalAntes").id = "principal";
     document.getElementById("apartadoComentarios").style.display = "block";
 }
 
@@ -53,8 +54,8 @@ function addComment() {
         let i = 0;
         let tam = palabrasProhibidas.length;
 
-        for(let palabra in palabrasProhibidas)
-            texto.replace(palabra, "*");
+        for(let palabra of palabrasProhibidas)
+            texto = texto.replace(palabra, "*");
 
         if(! encontrado)
             addBloqueComentario(autor, texto);
