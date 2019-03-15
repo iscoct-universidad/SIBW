@@ -1,13 +1,19 @@
-#descripcion {
-    grid-area: img;
-    padding-left: 10px;
-}
-
 #imagenes {
     float: right;
     display: grid;
     grid-template-rows: auto auto;
     padding-right: 10px;
+}
+
+#descripcion {
+    padding: 7px;
+}
+
+#principal {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 10% 55% 35%;
 }
 
 .logosRedesSocialesEvento {
@@ -34,4 +40,16 @@
     margin-bottom: 10px;
     padding: 5px;
     display: block;
+}
+
+.introducido {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#apartadoComentarios {
+    display: none;
+    grid-template-rows: 80% 20%;
+    margin-left: 10px;
+    padding: 7px;
 }

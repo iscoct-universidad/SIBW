@@ -36,19 +36,10 @@
     padding: 10px;
 }
 
-#principal {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: grid;
-    grid-template-areas: 'nav img img img img img img img img'
-}
-
 #navegacionLateral {
     list-style-type: none;
     height: inherit;
-    float: left;
     margin-right: 10px;
-    grid-area: nav;
 }
 
 #listaLateral {
