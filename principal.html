@@ -1,36 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Viajes</title>
-        <link rel="stylesheet" href="css/comun.css"/>
-        <link rel="stylesheet" href="css/principal.css"/>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <?php require 'head.php';?>
     </head>
     <body>
-        <header class="borde" id="cabecera">
-            <a href="principal.html"><img id="imagenAvion" src="img/avion.jpg" alt="Logotipo de la agencia de viajes"/></a>
-            <h1 id="cabeceraPrincipal">Viajes</h1>
-            <nav>
-                <ul id="menuCabecera">
-                    <li class="elementoMenu">Viaja</li>
-                    <li class="elementoMenu">Tus vuelos</li>
-                    <li class="elementoMenu">Antes de viajar</li>
-                    <li class="elementoMenu"><a href="principal.html">Principal</a></li>
-                </ul>
-            </nav>
-        </header>
+        <?php require 'cabecera.php';?>
 
         <section id="principal">
 
-            <aside class="borde" id="navegacionLateral">
-                <ul id="listaLateral">
-                    <li class="elementoLateral">Check-in</li>
-                    <li class="elementoLateral">Tus reservas</li>
-                    <li class="elementoLateral">Estados vuelos</li>
-                    <li class="elementoLateral"><a href="evento.html">Evento</a></li>
-                </ul>
-            </aside>
+            <?php require 'barraLateral.php';?>
 
             <main class="borde" id="conjuntoEventos">
                 <div><a href="evento.html"><img class="imagenes" src="img/paris.jpeg" alt="Viaje hacia París"/><p class="ciudad">París</p></a></div>
@@ -46,8 +24,6 @@
             
         </section>
 
-        <footer class="borde">
-            <div id="pie">&copy; 2019 SIBW</div>
-        </footer>
+        <?php require 'pie';?>
     </body>
 </html>
