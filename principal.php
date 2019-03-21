@@ -2,7 +2,8 @@
 <html>
     <head>
         <?php require 'head.php';?>
-    </head>
+        <link rel="stylesheet" href="css/principal.css"/>
+	</head>
     <body>
         <?php require 'cabecera.php';?>
 
@@ -24,6 +25,6 @@
             
         </section>
 
-        <?php require 'pie';?>
+        <?php require 'pie.php';?>
     </body>
 </html>

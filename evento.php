@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <?php require 'head.php'; ?>
     </head>
     <body>
         <?php require 'cabecera.php';?>
