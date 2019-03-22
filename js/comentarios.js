@@ -7,7 +7,7 @@ function showComments() {
 
 function addBloqueComentario(autor, texto) {
     let fecha = new Date();
-    let hora = fecha.getHours();
+    let hora = "" + fecha.getHours() + ":" + fecha.getMinutes() + "h";
 
     let comentarios = document.getElementById("conjuntoComentarios");
 
@@ -17,12 +17,12 @@ function addBloqueComentario(autor, texto) {
     let nuevaHora = document.createElement("p");
     let nuevoTexto = document.createElement("p");
 
-    nuevoComentario.class = "comentario";
-    nuevoAutor.class = "autores";
-    nuevaFecha.class = "fechas";
-    nuevaHora.class = "horas";
-    nuevoTexto.class = "textos";
-    
+    nuevoComentario.className  = "comentarios";
+    nuevoAutor.className  = "autores";
+    nuevaFecha.className  = "fechas";
+    nuevaHora.className  = "horas";
+    nuevoTexto.className  = "textos";
+
     nuevoAutor.innerText = "Autor: " + autor;
     nuevaFecha.innerText = "Fecha: " + fecha;
     nuevaHora.innerText = "Hora: " + hora;

@@ -68,3 +68,17 @@
     margin-left: 10px;
     padding: 7px;
 }
+.comentarios {
+    margin: 0.4em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.1em;
+    padding-bottom:  0.1em;
+}
+#conjuntoComentarios > :nth-child(odd)  {
+    background-color: #CDCDCD;
+}
+
+.comentarios > .autores{
+    font-weight: bold;
+}
