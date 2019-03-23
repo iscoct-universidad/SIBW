@@ -12,7 +12,7 @@
             <?php require 'barraLateral.php';?>
 
             <main class="borde" id="conjuntoEventos">
-                <div><a href="evento.html"><img class="imagenes" src="img/paris.jpeg" alt="Viaje hacia París"/><p class="ciudad">París</p></a></div>
+                <div><a href="evento.php"><img class="imagenes" src="img/paris.jpeg" alt="Viaje hacia París"/><p class="ciudad">París</p></a></div>
                 <div><a href="#"><img class="imagenes" src="img/roma.jpg" alt="Viaje hacia Roma"/><p class="ciudad">Roma</p></a></div>
                 <div><a href="#"><img class="imagenes" src="img/londres.jpg" alt="Viaje hacia Londres"/><p class="ciudad">Londres</p></a></div>
                 <div><a href="#"><img class="imagenes" src="img/cordoba.jpg" alt="Viaje hacia Córdoba"/><p class="ciudad">Córdoba</p></a></div>

@@ -1,3 +1,5 @@
+console.log("Ha conseguido referenciar esto en condiciones");
+
 function showComments() {
     console.log("Se llama correctamente a la función");
 

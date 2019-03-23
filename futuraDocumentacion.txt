@@ -1,0 +1,10 @@
+Creo una base de datos llamada viajes.
+
+Creo la tabla Comentarios:
+	NombreAutor
+	Fecha
+	Hora
+	Email
+	Texto
+	
+Creado usuario sibw con contraseña _aprobandoSIBWconUn10

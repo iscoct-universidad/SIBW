@@ -40,20 +40,7 @@
             <aside class="borde" id="apartadoComentarios">
 
                 <div id="conjuntoComentarios">
-
-                    <div class="comentario">
-                        <p class="autores" >Autor: Francisco José Cotán López</p>
-                        <p class="fechas" >Fecha: 16-07-1996</p>
-                        <p class="horas" >Hora: 12:30</p>
-                        <p class="textos">Texto: Hola, mi nombre es Fran</p>
-                    </div>
-
-                    <div class="comentario">
-                        <p class="autores">Autor: Pedro Luis Fuertes Moreno</p>
-                        <p class="fechas">Fecha: x </p>
-                        <p class="horas">Hora: 13:00</p>
-                        <p class="textos">Texto: Hola, mi nombre es Pedro</p>
-                    </div>
+					<?php require'conjuntoComentarios.php';?>
                 </div>
 
                 <section id="formulario">
