@@ -1,0 +1,18 @@
+Creo una base de datos llamada viajes.
+
+Creo la tabla Comentarios:
+	NombreAutor
+	Fecha
+	Hora
+	Email
+	Texto
+	
+Creado usuario sibw con contraseña _aprobandoSIBWconUn10
+	Para crear el usuario:
+		create user "nombre_usuario"@"localhost" identified by "contraseña";
+		grant all privileges on * . * to "nombre_usuario"@"localhost";
+		flush privileges;
+		
+Se opta temporalmente por añadir un modelo de Ruta Limpia para añadir un comentario:
+	Método HTTP				Ruta				Argumentos
+	/POST					/SIBW/addComentario	Nombre, Texto

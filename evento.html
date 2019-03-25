@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{ include('head.html') }}
+    </head>
+    <body>
+        {{ include('cabecera.twig') }}
+
+        <section id="principalAntes">
+            {{ include('barraLateral.twig') }}
+            
+            <main class="borde" id="descripcion">
+                <section id="imagenes">
+                    <img class="imagenes" src="{{ viaje["imagenSecundaria1"] }}" alt="Foto descriptiva número 1"/>
+                    <img class="imagenes" src="{{ viaje["imagenSecundaria2"] }}" alt="Esta es la ruta {{ viaje["imagenSecundaria2"] }}"/>
+                </section>
+                <h2 class="contenidoDesc" id="tituloEvento">{{ viaje["ciudad"] }}</h2>
+                <dl class="contenidoDesc">
+                  <dt class="contenidoDesc">Ciudad:</dt>
+                  <dd class="contenidoDesc">{{ viaje["ciudad"] }}</dd>
+                  <dt class="contenidoDesc">Fecha: </dt>
+                  <dd class="contenidoDesc">{{ viaje["fecha"] }}</dd>
+                </dl>
+                <p class="contenidoDesc">
+                   {{ viaje["texto"] }}
+                </p>
+                <button type="button">Contactar</button>
+
+                <!-- En el propio botón cambiamos el display -->
+
+                <button type="button" onclick="showComments()">Comentarios</button>
+
+                <article id="redesSocialesEvento">
+                    <a  href="#"><img class="logosRedesSocialesEvento" src="img/fb-logo.jpg"></a>
+                    <a  href="#"><img class="logosRedesSocialesEvento" src="img/tw-logo.jpg"></a>
+                    <a  href="evento_imprimir.html"><img class="logosRedesSocialesEvento" src="img/imprimir-logo.jpg"></a>
+                </article>
+            </main>
+
+            <aside class="borde" id="apartadoComentarios">
+
+                <div id="conjuntoComentarios">
+					{% for com in comentarios %}
+					
+						<div class="comentario">
+						<p class="autores">Autor: {{ com["nombreAutor"] }}</p>
+						<p class="fechas">Fecha: {{ com["fecha"] }}</p>
+						<p class="horas">Hora: {{ com["hora"] }}</p>
+						<p class="textos">Texto: {{ com["texto"] }}</p>
+						</div>
+					{% endfor %}
+                </div>
+
+                <section id="formulario">
+                    Nombre: <input class="introducido" type="text" name="name" value="name"><br>
+                    Email: <input class="introducido" type="text" name="email" value="email"><br>
+                    Texto: <input class="introducido" type="text" name="text" value="text"><br>
+                    <button type="button" onclick="addComment()">Enviar formulario</button>
+                </section>
+
+            </aside>
+        </section>
+
+		{{ include('pie.html') }}
+		
+        <script src="js/comentarios.js"></script>
+    </body>
+</html>

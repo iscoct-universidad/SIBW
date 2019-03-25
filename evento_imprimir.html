@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Viajes</title>
-
-        <link rel="stylesheet" href="css/evento_imprimir.css"/>
-
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    	<title>Viaje a imprimir</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="css/evento_imprimir.css">
     </head>
     <body>
     	<header class="borde">
@@ -15,18 +13,18 @@
     	<section>
     		<main class="borde" id="descripcion">
                 <section id="imagenes">
-                    <img class="imagenes" id="imagen1" src="img/fotoEvento1.jpeg" alt="Foto descriptiva número 1"/>
-                    <img class="imagenes" id="imagen2" src="img/fotoEvento2.jpg" alt="Foto descriptiva número 2"/>
+                    <img class="imagenes" id="imagen1" src="{{ viaje["imagenSecundaria1"] }}" alt="Foto descriptiva número 1"/>
+                    <img class="imagenes" id="imagen2" src="{{ viaje["imagenSecundaria2"] }}" alt="Foto descriptiva número 2"/>
                 </section>
-                <h2 class="contenidoDesc" id="tituloEvento">Título del evento</h2>
+                <h2 class="contenidoDesc" id="tituloEvento">{{ viaje["ciudad"] }}</h2>
                 <dl class="contenidoDesc">
-                  <dt class="contenidoDesc">Organizador:</dt>
-                  <dd class="contenidoDesc">Cotán</dd>
+                  <dt class="contenidoDesc">Ciudad:</dt>
+                  <dd class="contenidoDesc">{{ viaje["ciudad"] }}</dd>
                   <dt class="contenidoDesc">Fecha: </dt>
-                  <dd class="contenidoDesc">07/03/2019</dd>
+                  <dd class="contenidoDesc">{{ viaje["fecha"] }}</dd>
                 </dl>
                 <p class="contenidoDesc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel lectus cursus, pellentesque lectus vitae, consectetur quam. Pellentesque vulputate diam eu turpis aliquam, vitae viverra risus gravida. Donec nec venenatis libero. Fusce euismod nisi id leo mattis auctor. Nam sit amet dui maximus, pulvinar dolor at, viverra velit. Nullam tincidunt efficitur enim, at consectetur ipsum consectetur condimentum. In aliquam erat sed malesuada ullamcorper. Etiam laoreet justo in arcu posuere blandit. Aenean porttitor ultrices erat, faucibus tristique velit pellentesque vel. Sed bibendum metus a mauris sodales, ut venenatis dolor sodales. Nulla vehicula nisi eleifend, interdum mi et, fermentum quam. Nulla pretium iaculis sapien, quis sollicitudin nibh mattis nec. Donec condimentum elit vulputate mi lacinia aliquet. Nullam nec tristique nunc. Sed congue odio sed turpis viverra, ut ornare nibh blandit. Etiam scelerisque in leo nec condimentum. 
+                 	{{ viaje["texto"] }}
                 </p>
             </main>
     	</section>
