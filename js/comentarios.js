@@ -1,7 +1,7 @@
 function showComments() {
     console.log("Se llama correctamente a la función");
 
-    document.getElementById("principalAntes").id = "principal";
+    document.getElementById("principal").id = "principalDespues";
     document.getElementById("apartadoComentarios").style.display = "block";
 }
 
