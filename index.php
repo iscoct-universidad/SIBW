@@ -11,8 +11,8 @@
 	
 	# Preparación de los argumentos a enviar
         
-	$navegacionSuperior = ['Viaja', 'Tus vuelos', 'Antes de viajar'];
-	$navegacionLateral = ['Check-in', 'Tus reservas', 'Estados vuelos'];
+	$navegacionSuperior = getNavegacion('Superior');
+	$navegacionLateral = getNavegacion('Lateral');
 	$viajes = getViajes();
 	$eventos = [];
 	

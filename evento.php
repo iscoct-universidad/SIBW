@@ -11,8 +11,8 @@
 	
 	# Preparación de los argumentos a enviar
         
-	$navegacionSuperior = ['Viaja', 'Tus vuelos', 'Antes de viajar'];
-	$navegacionLateral = ['Check-in', 'Tus reservas', 'Estados vuelos'];
+	$navegacionSuperior = getNavegacion('Superior');
+	$navegacionLateral = getNavegacion('Lateral');
 	$viaje = getViajes("0");
 	$datosViajeAEnviar = [ "ciudad" => $viaje[0] -> ciudad,
 		"imagenSecundaria1" => $viaje[0] -> imagenSecundaria1,

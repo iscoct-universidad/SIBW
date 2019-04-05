@@ -18,6 +18,12 @@
 		return consulta("select * from Comentarios where idViaje=\"" . $idViaje . "\";");
 	}
 	
+	function getNavegacion($tipo, $publicoObjetivo = "Publico") {
+		$consulta = consulta("select * from Navegacion where tipo=\"" . $tipo . "\" and publicoObjetivo=\"" . $publicoObjetivo . "\";");
+		
+		return preg_split(",", $consulta -> contenidoNavegacion);
+	}
+	
 	function getViajes($id = "-1") {
 		$sql = ($id == -1) ? "select * from Viajes;" : "select * from Viajes where id=\"" .
 			$id . "\";";
