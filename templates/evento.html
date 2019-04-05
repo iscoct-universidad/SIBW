@@ -50,8 +50,15 @@
                     Email: <input class="introducido" type="text" name="email" value="email"><br>
                     Texto: <input class="introducido" type="text" name="text" value="text"><br>
                     <button type="button" onclick="addComment()">Enviar formulario</button>
+                    <button type="button" onclick="guardarBorrador()">Guardar borrador</button>
                 </section>
-
+				<script type="text/javascript">
+					if(localStorage.nombre) {
+						document.getElementsByName("name")[0].value = localStorage.nombre;
+						document.getElementsByName("email")[0].value = localStorage.email;
+						document.getElementsByName("text")[0].value = localStorage.text;
+					}
+				</script>
             </aside>
 {% endblock %}
 {% block javaScript %}

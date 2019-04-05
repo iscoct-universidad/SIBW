@@ -15,7 +15,7 @@
 		return consulta("select * from PalabrasProhibidas");
 	}
 	
-	function conjuntoComentarios() {
+	function conjuntoComentarios($idViaje) {
 		return consulta("select * from Comentarios where idViaje=\"" . $idViaje . "\";");
 	}
 	

@@ -28,8 +28,16 @@
 	
 	$comentarios = conjuntoComentarios('0');
 	
+	$comments = [];
+	
+	foreach($comentarios as $com) {
+		array_push($comments, [ "autor" => $com -> nombreAutor,
+			"fecha" => $com -> fecha, "hora" => $com -> hora,
+			"texto" => $com -> texto ]);
+	}
+	
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral, 
-	'viaje' => $datosViajeAEnviar, 'comentarios' => $comentarios];
+	'viaje' => $datosViajeAEnviar, 'comentarios' => $comments];
 	
 	$template = $twig -> load('./templates/evento.html');
 	

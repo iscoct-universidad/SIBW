@@ -75,3 +75,12 @@ function addComment() {
         alert("No ha introducido todos los campos en el formulario o el email no es válido");
     }
 }
+
+function guardarBorrador() {
+	localStorage.nombre = document.getElementsByName("name")[0].value;
+	localStorage.email = document.getElementsByName("email")[0].value;
+	localStorage.texto = document.getElementsByName("text")[0].value;
+	
+	console.log("Hasta aquí hemos llegado");
+	console.log("Valor de localStorage.nombre: " + localStorage.nombre);
+}
