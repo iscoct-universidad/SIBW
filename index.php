@@ -9,14 +9,19 @@
 	
 	# Preparación de los argumentos a enviar
         
-	$navegacionSuperior = ['Viaja', 'Tus vuelos', 'Antes de viajar'];
-	$navegacionLateral = ['Check-in', 'Tus reservas', 'Estados vuelos'];
+	$navegacionSuperior = getNavegacion('Superior');
+	
+	$navegacionLateral = getNavegacion('Lateral');
 	$viajes = getViajes();
 	$eventos = [];
 	
-	foreach($viajes as $v)
-		array_push($eventos, ['href' => 'evento.php', 'imagenFuente' => $v -> imagenPrincipal, 'ciudad' => $v -> ciudad ]);
-	
+	foreach($viajes as $v) {
+		$imagenes = explode(',', $v -> imagenes);
+		$imagenPrincipal = $imagenes[0];
+		
+		array_push($eventos, ['href' => 'evento.php', 'imagenFuente' => $imagenPrincipal, 'ciudad' => $v -> ciudad ]);
+	}
+
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral, 'eventos' => $eventos];
 
 	$template = $twig -> load('./templates/principal.html');
