@@ -5,7 +5,7 @@
 		
 		echo "Aquí está la tupla que enviaremos: " . $sql . "\n";
 		
-		if($GLOBALS["CONEXION"] -> query($sql) === TRUE)
+		if(BaseDeDatosViajes::getConexion() -> query($sql) === TRUE)
 			echo "Se ha insertado la tupla con éxito\n";
 		else
 			echo "Ha ocurrido un error al insertar la tupla\n";

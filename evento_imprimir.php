@@ -1,9 +1,7 @@
 <?php
 	require_once './vendor/autoload.php';
-	require_once 'php/conexionBD.php';
+	require_once './php/BaseDeDatosViajes.inc.php';
 	require_once 'php/operaciones.php';
-	
-	conexionBD();
 	
 	$loader = new \Twig\Loader\FilesystemLoader('.');
 
