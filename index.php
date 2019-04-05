@@ -1,6 +1,9 @@
 <?php
 	require_once './vendor/autoload.php';
-	require_once './php/getViajes.php';
+	require_once './php/operaciones.php';
+	require_once './php/conexionBD.php';
+	
+	conexionBD();
 	
 	$loader = new \Twig\Loader\FilesystemLoader('.');
 
@@ -14,10 +17,10 @@
 	$eventos = [];
 	
 	foreach($viajes as $v)
-		array_push($eventos, ['href' => 'evento.php', 'imagenFuente' => $v["imagenPrincipal"], 'ciudad' => $v["ciudad"] ]);
+		array_push($eventos, ['href' => 'evento.php', 'imagenFuente' => $v -> imagenPrincipal, 'ciudad' => $v -> ciudad ]);
 	
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral, 'eventos' => $eventos];
-	
+
 	$template = $twig -> load('./templates/principal.html');
 	
 	echo $template -> render($argumentos);
