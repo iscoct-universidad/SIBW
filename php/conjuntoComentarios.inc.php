@@ -1,6 +1,6 @@
 <?php
 	function conjuntoComentarios($idViaje) {
-		require_once('conexionBD.php');
+		require_once('conexionBD.inc.php');
 		
 		$conexion = conexionBD();
 

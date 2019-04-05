@@ -1,6 +1,6 @@
 <?php
 	function getViajes($id = "-1") {
-		require_once('conexionBD.php');
+		require_once('conexionBD.inc.php');
 		
 		$conexion = conexionBD();
 

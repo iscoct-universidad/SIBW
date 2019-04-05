@@ -1,7 +1,7 @@
 <?php
 	require_once './vendor/autoload.php';
-	require_once 'php/conjuntoComentarios.php';
-	require_once 'php/getViajes.php';
+	require_once 'php/conjuntoComentarios.inc.php';
+	require_once 'php/getViajes.inc.php';
 	
 	$loader = new \Twig\Loader\FilesystemLoader('.');
 

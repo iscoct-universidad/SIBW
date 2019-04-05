@@ -1,6 +1,6 @@
 <?php
 	function consultaPalabrasProhibidas() {
-		require_once('conexionBD.php');
+		require_once('conexionBD.inc.php');
 		
 		$conexion = conexionBD();
 			
