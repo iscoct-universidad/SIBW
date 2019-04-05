@@ -14,9 +14,14 @@
 	$navegacionSuperior = getNavegacion('Superior');
 	$navegacionLateral = getNavegacion('Lateral');
 	$viaje = getViajes("0");
+	$imagenes = explode(',', $viaje[0] -> imagenes);
+	
+	$imagenSecundaria1 = $imagenes[1];
+	$imagenSecundaria2 = $imagenes[2];
+	
 	$datosViajeAEnviar = [ "ciudad" => $viaje[0] -> ciudad,
-		"imagenSecundaria1" => $viaje[0] -> imagenSecundaria1,
-		"imagenSecundaria2" => $viaje[0] -> imagenSecundaria2,
+		"imagenSecundaria1" => $imagenSecundaria1,
+		"imagenSecundaria2" => $imagenSecundaria2,
 		"texto" => $viaje[0] -> texto, 
 		"fecha" => $viaje[0] -> fecha
 	];

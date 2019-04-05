@@ -7,6 +7,7 @@
 				array_push($resultado, $obj);
 			}
 		}
+		
 		return $resultado;
 	}
 	
@@ -19,9 +20,11 @@
 	}
 	
 	function getNavegacion($tipo, $publicoObjetivo = "Publico") {
-		$consulta = consulta("select * from Navegacion where tipo=\"" . $tipo . "\" and publicoObjetivo=\"" . $publicoObjetivo . "\";");
+		$str = "select contenidoNavegacion from Navegacion where tipo=\"" . $tipo . "\" and publicoObjetivo=\"" . $publicoObjetivo . "\";";
 		
-		return preg_split(",", $consulta -> contenidoNavegacion);
+		$consulta = consulta($str);
+		
+		return explode(",", $consulta[0] -> contenidoNavegacion);
 	}
 	
 	function getViajes($id = "-1") {
@@ -29,5 +32,9 @@
 			$id . "\";";
 			
 		return consulta($sql);
+	}
+	
+	function getViajePorNombre($nombre) {
+		return consulta("select * from Viajes where ciudad=\"" . $nombre . "\";");
 	}
 ?>
