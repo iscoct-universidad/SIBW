@@ -2,7 +2,7 @@
 	function consulta($sql) {
 		$resultado = [];
 
-		if($consulta = $GLOBALS['CONEXION'] -> query($sql)) {
+		if($consulta = BaseDeDatosViajes::getConexion() -> query($sql)) {
 			while($obj = $consulta -> fetch_object()) {
 				array_push($resultado, $obj);
 			}
@@ -14,7 +14,7 @@
 		return consulta("select * from PalabrasProhibidas");
 	}
 	
-	function conjuntoComentarios() {
+	function conjuntoComentarios($idViaje) {
 		return consulta("select * from Comentarios where idViaje=\"" . $idViaje . "\";");
 	}
 	
