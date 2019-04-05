@@ -10,6 +10,6 @@
 		if(! $conexion)
 			die("Conexión fallida: ");
 		
-		return $conexion;
+		$GLOBALS['CONEXION'] = $conexion;
 	}
 ?>

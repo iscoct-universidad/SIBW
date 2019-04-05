@@ -13,7 +13,7 @@ create table if not exists Comentarios (
 insert into Comentarios values (
 	"0",
 	"123.123.123.123",
-	"Francisco José Cotán López",
+	"Francisco Jose Cotan Lopez",
 	date("1996-07-16"),
 	"12:30:00",
 	"frandkv27@gmail.com",
