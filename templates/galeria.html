@@ -1,0 +1,17 @@
+{% extends "templates/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="css/evento.css"/>
+{% endblock %}
+{% block main %}
+	<main class="borde">
+		{% for v in viajes %}
+			<h2>{{ v["ciudad"] }}</h2>
+			
+			{% for img in v["imagenes"] %}
+				<div>
+					<img class="imagenes" src="{{ img }}" alt="Viaje hacia {{ v["ciudad"] }}" />
+				</div>
+			{% endfor %}
+		{% endfor %}
+	</main>
+{% endblock %}
