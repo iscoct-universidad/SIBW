@@ -2,6 +2,7 @@
 	require_once './vendor/autoload.php';
 	require_once './php/operaciones.php';
 	require_once './php/BaseDeDatosViajes.inc.php';
+	require_once 'php/Viaje.inc.php';
 	
 	$loader = new \Twig\Loader\FilesystemLoader('.');
 
@@ -12,14 +13,14 @@
 	$navegacionSuperior = getNavegacion('Superior');
 	
 	$navegacionLateral = getNavegacion('Lateral');
-	$viajes = getViajes();
+	$viajes = Viaje::getViajes();
 	$eventos = [];
 	
 	foreach($viajes as $v) {
-		$imagenes = explode(',', $v -> imagenes);
+		$imagenes = $v -> getImagenes();
 		$imagenPrincipal = $imagenes[0];
 		
-		array_push($eventos, ['href' => 'evento.php', 'imagenFuente' => $imagenPrincipal, 'ciudad' => $v -> ciudad ]);
+		array_push($eventos, ['href' => 'evento.php', 'imagenFuente' => $imagenPrincipal, 'ciudad' => $v -> getCiudad() ]);
 	}
 
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral, 'eventos' => $eventos];
