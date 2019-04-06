@@ -17,12 +17,15 @@
 	
 	$imagenSecundaria1 = $imagenes[1];
 	$imagenSecundaria2 = $imagenes[2];
+	$video = $viaje[0] -> getVideos();
 	
 	$datosViajeAEnviar = [  "ciudad" => $viaje[0] -> getCiudad(),
 							"imagenSecundaria1" => $imagenSecundaria1,
 							"imagenSecundaria2" => $imagenSecundaria2,
 							"texto" => $viaje[0] -> getTexto(), 
-							"fecha" => $viaje[0] -> getFecha()
+							"fecha" => $viaje[0] -> getFecha(),
+							"video" => $video[0][0],
+							"formatoVideo" => $video[0][1]
 	];
 	
 	$comentarios = conjuntoComentarios('0');
