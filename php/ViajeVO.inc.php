@@ -8,6 +8,7 @@
 		private $texto;
 		private $palabrasClave; 
 		private $imagenes; 
+		private $videos;
 		
 		function __construct($viaje)
 		{
@@ -17,6 +18,7 @@
 			$this->texto = $viaje -> texto;
 			$this->palabrasClave = $viaje -> palabrasClave;
 			$this->imagenes = explode(',', $viaje -> imagenes);
+			$this->videos = explode(';', $viaje -> videos);
 		}
 
 		public function getId(){
@@ -37,7 +39,23 @@
 		public function getImagenes(){
 			return $this->imagenes;
 		} 
-
+		
+		/*
+			Devuelve un array de arrays
+				Un array en donde cada posición tendrá un array constituido
+					por el video fuente y su correspondiente formato
+					
+					array[0] = <videoFuente>	array[1] = <formatoVideo>
+		*/
+		
+		public function getVideos() {
+			$resultado = [];
+			
+			foreach($this->videos as $video)
+				array_push($resultado, explode(',', $video));
+				
+			return $resultado;
+		}
 	}
 
  ?>

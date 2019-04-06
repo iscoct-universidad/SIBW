@@ -18,6 +18,14 @@
                 <p class="contenidoDesc">
                    {{ viaje["texto"] }}
                 </p>
+                
+                {% if viaje["video"] != null %}
+		            <video controls>
+		            	<source src="{{ viaje["video"] }}" type="{{ viaje["formatoVideo"] }}">
+		            	Your browser doesn't support HTML5 video
+		            </video>
+                {% endif %}
+                
                 <button type="button">Contactar</button>
 
                 <!-- En el propio botón cambiamos el display -->
