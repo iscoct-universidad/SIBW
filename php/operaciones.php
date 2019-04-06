@@ -1,28 +1,18 @@
 <?php
-	function consulta($sql) {
-		$resultado = [];
-
-		if($consulta = BaseDeDatosViajes::getConexion() -> query($sql)) {
-			while($obj = $consulta -> fetch_object()) {
-				array_push($resultado, $obj);
-			}
-		}
-		
-		return $resultado;
-	}
+	
 	
 	function consultaPalabrasProhibidas() {
-		return consulta("select * from PalabrasProhibidas");
+		return BaseDeDatosViajes::consulta("select * from PalabrasProhibidas");
 	}
 	
 	function conjuntoComentarios($idViaje) {
-		return consulta("select * from Comentarios where idViaje=\"" . $idViaje . "\";");
+		return BaseDeDatosViajes::consulta("select * from Comentarios where idViaje=\"" . $idViaje . "\";");
 	}
 	
 	function getNavegacion($tipo, $publicoObjetivo = "Publico") {
 		$str = "select contenidoNavegacion from Navegacion where tipo=\"" . $tipo . "\" and publicoObjetivo=\"" . $publicoObjetivo . "\";";
 		
-		$consulta = consulta($str);
+		$consulta = BaseDeDatosViajes::consulta($str);
 		
 		return explode(",", $consulta[0] -> contenidoNavegacion);
 	}

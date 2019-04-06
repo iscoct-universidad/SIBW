@@ -29,6 +29,18 @@ class BaseDeDatosViajes
 
 	}
 
+	public static function consulta($sql) {
+		$resultado = [];
+
+		if($consulta = self::getConexion() -> query($sql)) {
+			while($obj = $consulta -> fetch_object()) {
+				array_push($resultado, $obj);
+			}
+		}
+		
+		return $resultado;
+	}
+
 	
 }
 	

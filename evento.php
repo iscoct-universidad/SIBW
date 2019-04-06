@@ -1,7 +1,8 @@
 <?php
 	require_once './vendor/autoload.php';
-	require_once './php/BaseDeDatosViajes.inc.php';
+	
 	require_once 'php/operaciones.php';
+	require_once 'php/Viaje.inc.php';
 	
 	$loader = new \Twig\Loader\FilesystemLoader('.');
 
@@ -11,17 +12,17 @@
         
 	$navegacionSuperior = getNavegacion('Superior');
 	$navegacionLateral = getNavegacion('Lateral');
-	$viaje = getViajes("0");
-	$imagenes = explode(',', $viaje[0] -> imagenes);
+	$viaje = Viaje::getViajes();
+	$imagenes = $viaje[0] -> getImagenes();
 	
 	$imagenSecundaria1 = $imagenes[1];
 	$imagenSecundaria2 = $imagenes[2];
 	
-	$datosViajeAEnviar = [ "ciudad" => $viaje[0] -> ciudad,
-		"imagenSecundaria1" => $imagenSecundaria1,
-		"imagenSecundaria2" => $imagenSecundaria2,
-		"texto" => $viaje[0] -> texto, 
-		"fecha" => $viaje[0] -> fecha
+	$datosViajeAEnviar = [  "ciudad" => $viaje[0] -> getCiudad(),
+							"imagenSecundaria1" => $imagenSecundaria1,
+							"imagenSecundaria2" => $imagenSecundaria2,
+							"texto" => $viaje[0] -> getTexto(), 
+							"fecha" => $viaje[0] -> getFecha()
 	];
 	
 	$comentarios = conjuntoComentarios('0');

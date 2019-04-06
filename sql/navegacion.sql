@@ -11,7 +11,7 @@ create table if not exists Navegacion (
 
 insert into Navegacion values(
 	'Viaja,Tus vuelos,Antes de viajar',
-	'www.google.es,www.google.es,www.google.es'
+	'www.google.es,www.google.es,www.google.es',
 	'Superior',
 	'Publico'
 );
