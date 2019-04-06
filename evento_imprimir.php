@@ -9,14 +9,9 @@
 	$twig = new \Twig\Environment($loader);
 	
 	$viaje = Viaje::getViajes("0");
-	$imagenes = $viaje[0] -> getImagenes();
-	
-	$imagenSecundaria1 = $imagenes[1];
-	$imagenSecundaria2 = $imagenes[2];
 	
 	$datosViajeAEnviar = [ "ciudad" => $viaje[0] -> getCiudad(),
-		"imagenSecundaria1" => $imagenSecundaria1,
-		"imagenSecundaria2" => $imagenSecundaria2,
+		"imagenes" => $viaje[0] -> getImagenes(),
 		"texto" => $viaje[0] -> getTexto(), 
 		"fecha" => $viaje[0] -> getFecha()
 	];
