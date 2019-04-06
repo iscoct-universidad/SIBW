@@ -1,17 +1,19 @@
 {% extends "templates/base.html" %}
 {% block css %}
-        <link rel="stylesheet" href="css/evento.css"/>
+        <link rel="stylesheet" href="css/galeria.css"/>
 {% endblock %}
 {% block main %}
-	<main class="borde">
+	<main class="borde" id="galeria">
 		{% for v in viajes %}
-			<h2>{{ v["ciudad"] }}</h2>
-			
-			{% for img in v["imagenes"] %}
-				<div>
-					<img class="imagenes" src="{{ img }}" alt="Viaje hacia {{ v["ciudad"] }}" />
+			<div>
+				<h2 id="ciudad">{{ v["ciudad"] }}</h2>
+				
+				<div id="galeriaFotos">
+					{% for img in v["imagenes"] %}
+							<img class="imagenes" src="{{ img }}" alt="Viaje hacia {{ v["ciudad"] }}" />
+					{% endfor %}
 				</div>
-			{% endfor %}
+			</div>
 		{% endfor %}
 	</main>
 {% endblock %}
