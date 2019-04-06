@@ -1,11 +1,10 @@
 #descripcion {
-	margin-top: 100px;
+    width: 100%;
 }
 #imagenAvion {
     height: 100px;
     width: 100px;
     border-radius: 100px;
-    float: left;
     padding: 30px;
 }
 .imagenes {
@@ -16,6 +15,13 @@
     padding: 5px;
     display: block;
     float: right;
+}
+#imagen-principal > img{
+    width: 100%;
+}
+
+.descripcion {
+    column-count: 2;
 }
 /*.borde {
     border-style: solid;
