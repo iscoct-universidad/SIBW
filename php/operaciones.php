@@ -1,6 +1,4 @@
 <?php
-	
-	
 	function consultaPalabrasProhibidas() {
 		return BaseDeDatosViajes::consulta("select * from PalabrasProhibidas");
 	}
@@ -26,5 +24,23 @@
 	
 	function getViajePorNombre($nombre) {
 		return consulta("select * from Viajes where ciudad=\"" . $nombre . "\";");
+	}
+
+	/*
+		pre: Palabras clave debe ser mayor que uno
+	*/
+	
+	function getViajesPorPalabrasClave($palabrasClave) {
+		$arrayPalabras = explode(",", $palabrasClave);
+		
+		$consulta = "select * from Viajes where palabrasClave like '%{$arrayPalabras[0]}%'";
+		$tamArray = count($arrayPalabras);
+		
+		for($i = 1; $i < $tamArray; $i++)
+			$consulta .= " or palabrasClave like '%{$arrayPalabras[$i]}%'";
+		
+		$consulta .= ";";
+			
+		return BaseDeDatosViajes::consulta($consulta);
 	}
 ?>

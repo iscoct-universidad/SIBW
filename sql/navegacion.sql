@@ -17,8 +17,8 @@ insert into Navegacion values(
 );
 
 insert into Navegacion values(
-	'Check-in,Tus reservas,Estados vuelos',
-	'www.google.es,www.google.es,www.google.es',
+	'Check-in,Tus reservas,Estados vuelos,Buscar por palabras claves',
+	'www.google.es,www.google.es,www.google.es,./buscarPorPalabrasClaves.php',
 	'Lateral',
 	'Publico'
 );
