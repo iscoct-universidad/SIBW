@@ -84,3 +84,12 @@ function guardarBorrador() {
 	console.log("Hasta aquí hemos llegado");
 	console.log("Valor de localStorage.nombre: " + localStorage.nombre);
 }
+
+function ventanaEmergente(redSocial) {
+	let tituloEvento = document.getElementById("tituloEvento").innerHTML;
+	let imagen = document.getElementsByClassName("imagenes")[0].src;
+	
+	window.open("./mensajeRedSocial.php?tituloEvento=" + tituloEvento + "&imagen=" +
+		imagen + "&redSocial=" + redSocial, 
+		"_blank", "channelmode=yes,resizable=yes,fullscreen=yes");
+}

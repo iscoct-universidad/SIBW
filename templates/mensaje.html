@@ -1,0 +1,19 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Mensaje red social | {{ redSocial }}</title>
+	</head>
+	<body>
+		<div>
+			<p>Se publicará en {{ redSocial }} el siguiente mensaje: {{ tituloEvento }} {{ usuario }} <img src="{{ imagen }}" alt="Foto del evento"/></p>
+			<button onclick="cerrarVentana()">Aceptar</button>
+		</div>
+		
+		<script type="text/javascript">
+			function cerrarVentana() {
+				window.close();
+			}
+		</script>
+	</body>
+</html>
