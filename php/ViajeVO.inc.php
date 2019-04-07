@@ -4,7 +4,9 @@
 	{
 		private $id;
 		private $ciudad;
-		private $fecha; 
+		private $fecha;
+		private $fechaPublicacion;
+		private $fechaModificacion;
 		private $texto;
 		private $palabrasClave; 
 		private $imagenes; 
@@ -14,7 +16,9 @@
 		{
 			$this->id = $viaje -> id;
 			$this->ciudad = $viaje -> ciudad;
-			$this->fecha = $viaje -> fecha;; 
+			$this->fecha = $viaje -> fecha;
+			$this->fechaPublicacion = $viaje -> fechaPublicacion;
+			$this->fechaModificacion = $viaje -> fechaModificacion;
 			$this->texto = $viaje -> texto;
 			$this->palabrasClave = $viaje -> palabrasClave;
 			$this->imagenes = explode(',', $viaje -> imagenes);
@@ -30,6 +34,12 @@
 		public function getFecha(){
 			return $this->fecha;
 		} 
+		public function getFechaPublicacion(){
+			return $this->fechaPublicacion;
+		}
+		public function getFechaModificacion(){
+			return $this->fechaModificacion;
+		}
 		public function getTexto(){
 			return $this->texto;
 		} 

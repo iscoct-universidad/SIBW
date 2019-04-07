@@ -24,6 +24,8 @@
 							"imagenSecundaria2" => $imagenSecundaria2,
 							"texto" => $viaje[0] -> getTexto(), 
 							"fecha" => $viaje[0] -> getFecha(),
+							"fechaPublicacion" => $viaje[0] -> getFechaPublicacion(),
+							"fechaModificacion" => $viaje[0] -> getFechaModificacion(),
 							"video" => $video[0][0],
 							"formatoVideo" => $video[0][1]
 	];
