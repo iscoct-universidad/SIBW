@@ -12,7 +12,7 @@
         
 	$navegacionSuperior = getNavegacion('Superior');
 	$navegacionLateral = getNavegacion('Lateral');
-	$viaje = Viaje::getViajes();
+	$viaje = Viaje::getViajes($_GET["idViaje"]);
 	$imagenes = $viaje[0] -> getImagenes();
 	
 	$imagenSecundaria1 = $imagenes[1];

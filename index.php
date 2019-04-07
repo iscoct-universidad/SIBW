@@ -11,7 +11,6 @@
 	# Preparación de los argumentos a enviar
         
 	$navegacionSuperior = getNavegacion('Superior');
-	
 	$navegacionLateral = getNavegacion('Lateral');
 	$viajes = Viaje::getViajes();
 	$eventos = [];
@@ -20,7 +19,7 @@
 		$imagenes = $v -> getImagenes();
 		$imagenPrincipal = $imagenes[0];
 		
-		array_push($eventos, ['href' => 'evento.php', 'imagenFuente' => $imagenPrincipal, 'ciudad' => $v -> getCiudad() ]);
+		array_push($eventos, ['href' => "./evento.php?idViaje=".$v -> getId(), 'imagenFuente' => $imagenPrincipal, 'ciudad' => $v -> getCiudad() ]);
 	}
 
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral, 'eventos' => $eventos];
