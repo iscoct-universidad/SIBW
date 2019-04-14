@@ -17,7 +17,7 @@
 		$argumentos = ["redSocial" => $redSocial, "imagen" => $imagen, "tituloEvento" => $tituloEvento];
 	}
 	
-	$template = $twig -> load('./templates/mensaje.html');
+	$template = $twig -> load('./templates/html/mensaje.html');
 	
 	echo $template -> render($argumentos);
 ?>

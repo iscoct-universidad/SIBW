@@ -1,0 +1,85 @@
+#imagenes {
+    float: right;
+    display: grid;
+    grid-template-rows: auto auto;
+    padding-right: 10px;
+}
+
+#descripcion {
+    padding: 7px;
+}
+
+/*
+    Principal antes de darle al botón
+*/
+
+#principal {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+/*
+    Principal después de darle al botón
+*/
+
+#principalDespues {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 10% 55% 35%;
+}
+
+.logosRedesSocialesEvento {
+    width: 50px;
+    height: 50px;
+    padding-top: 15px;
+    padding-right: 10px;
+}
+
+#organizadorEvento {
+    padding-left: 15px;
+}
+
+#fechaEvento {
+    padding-left: 25px;
+}
+
+.imagenes {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    display: block;
+}
+
+.introducido {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#apartadoComentarios {
+    display: none;
+    grid-template-rows: 80% 20%;
+    margin-left: 10px;
+    padding: 7px;
+}
+.comentarios {
+    margin: 0.4em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.1em;
+    padding-bottom:  0.1em;
+    border-radius: 10%;
+}
+#conjuntoComentarios > :nth-child(odd)  {
+    background-color: #CDCDCD;
+}
+
+.comentarios > .autores{
+    font-weight: bold;
+}

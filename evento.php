@@ -70,7 +70,7 @@
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral, 
 	'viaje' => $datosViajeAEnviar, 'comentarios' => $comments];
 	
-	$template = $twig -> load('./templates/evento.html');
+	$template = $twig -> load('./templates/html/evento.html');
 	
 	echo $template -> render($argumentos);
 ?>

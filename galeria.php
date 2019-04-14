@@ -23,7 +23,7 @@
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral, 'viajes' => $datosViajeAEnviar];
 	
 	
-	$template = $twig -> load('./templates/galeria.html');
+	$template = $twig -> load('./templates/html/galeria.html');
 	
 	echo $template -> render($argumentos);
 ?>
