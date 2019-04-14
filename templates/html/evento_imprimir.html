@@ -37,7 +37,7 @@
                 <section id="videos">
                     <h2 class="contenidoDesc">Videos</h2>
                     {% for video in viaje["videos"] %}
-                    <a class="videos" id="video{{ loop.index }}" href='{{ video }}'>{{ video }}</a>
+                    <a class="videos" id="video{{ loop.index }}" href='{{ video[0] }}'>{{ video[0] }}</a>
                     {% endfor %}
                 </section>
                 {% endif %}
