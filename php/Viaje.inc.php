@@ -7,10 +7,10 @@
 	{
 		
 		public static function getViajes($id = "-1") {
-			$id = test_int_with_min($id, 1)[1];
+			
 			$sql = ($id == -1) ? "select * from Viajes;" : "select * from Viajes where id=\"" .
 				$id . "\";";
-				
+			$id = test_int_with_min($id, 1)[1];
 			$consulta = BaseDeDatosViajes::consulta($sql);
 			$viajes; 
 			for($i = 0; $i < count($consulta); ++$i) {
