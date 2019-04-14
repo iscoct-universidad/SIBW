@@ -8,7 +8,7 @@
 
 	$twig = new \Twig\Environment($loader);
 	
-	$viaje = Viaje::getViajes("0");
+	$viaje = Viaje::getViajes($_GET["idViaje"]);
 	
 	$datosViajeAEnviar = [ "ciudad" => $viaje[0] -> getCiudad(),
 		"imagenes" => $viaje[0] -> getImagenes(),
