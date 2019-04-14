@@ -24,7 +24,7 @@
 
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral, 'eventos' => $eventos];
 
-	$template = $twig -> load('./templates/principal.html');
+	$template = $twig -> load('./templates/html/principal.html');
 	
 	echo $template -> render($argumentos);
 ?>

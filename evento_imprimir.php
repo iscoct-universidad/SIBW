@@ -18,7 +18,7 @@
 	
 	$argumentos = ['viaje' => $datosViajeAEnviar];
 	
-	$template = $twig -> load('templates/evento_imprimir.html');
+	$template = $twig -> load('templates/html/evento_imprimir.html');
 	
 	echo $template -> render($argumentos);
 ?>

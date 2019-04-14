@@ -29,7 +29,7 @@
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral, 
 	'ciudades' => $ciudades];
 
-	$template = $twig -> load('./templates/buscarPorPalabrasClaves.html');
+	$template = $twig -> load('./templates/html/buscarPorPalabrasClaves.html');
 	
 	echo $template -> render($argumentos);
 ?>

@@ -1,6 +1,6 @@
-{% extends "templates/base.html" %}
+{% extends "templates/html/base.html" %}
 {% block css %}
-        <link rel="stylesheet" href="css/evento.css"/>
+        <link rel="stylesheet" href="templates/css/evento.css"/>
 {% endblock %}
 {% block main %}
             <main class="borde" id="descripcion">
@@ -39,9 +39,9 @@
                 <button type="button" onclick="showComments()">Comentarios</button>
 
                 <article id="redesSocialesEvento">
-                    <a  href="#" onclick="ventanaEmergente('Facebook')"><img class="logosRedesSocialesEvento" src="img/fb-logo.jpg"></a>
-                    <a  href="#" onclick="ventanaEmergente('Twitter')"><img class="logosRedesSocialesEvento" src="img/tw-logo.jpg"></a>
-                    <a  href="evento_imprimir.php"><img class="logosRedesSocialesEvento" src="img/imprimir-logo.jpg"></a>
+                    <a  href="#" onclick="ventanaEmergente('Facebook')"><img class="logosRedesSocialesEvento" src="templates/img/fb-logo.jpg"></a>
+                    <a  href="#" onclick="ventanaEmergente('Twitter')"><img class="logosRedesSocialesEvento" src="templates/img/tw-logo.jpg"></a>
+                    <a  href="evento_imprimir.php"><img class="logosRedesSocialesEvento" src="templates/img/imprimir-logo.jpg"></a>
                 </article>
             </main>
 
@@ -75,5 +75,5 @@
             </aside>
 {% endblock %}
 {% block javaScript %}
-        <script src="js/comentarios.js"></script>
+        <script src="templates/js/comentarios.js"></script>
 {% endblock %} 

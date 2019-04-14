@@ -14,7 +14,7 @@
 	
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral];
 
-	$template = $twig -> load('./templates/buscar.html');
+	$template = $twig -> load('./templates/html/buscar.html');
 	
 	echo $template -> render($argumentos);
 ?>
