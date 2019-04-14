@@ -1,6 +1,6 @@
 {% extends "templates/base.html" %}
 {% block css %}
-        <link rel="stylesheet" href="css/buscarPorPalabrasClaves.css"/>
+        <link rel="stylesheet" href="css/buscar.css"/>
 {% endblock %}
 {% block main %}
 	<main class="borde">
@@ -11,9 +11,11 @@
 		{% if ciudades != null %}
 			<li id="listaCiudades">
 			{% for city in ciudades %}
-				<ul class="ciudades">{{ city }} </ul>
+				<ul class="ciudades"><a href="./evento.php?idViaje={{city['id']}}">{{ city['nombre'] }}</a></ul>
 			{% endfor %}
 			</li>
+		{% else %}
+			<p>No se han encontrado ciudades.</p>
 		{% endif %}
 		
 	</main>

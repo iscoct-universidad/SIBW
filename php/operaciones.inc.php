@@ -1,12 +1,16 @@
 <?php
+	require_once './php/BaseDeDatosViajes.inc.php';
+	/*
 	function consultaPalabrasProhibidas() {
 		return BaseDeDatosViajes::consulta("select * from PalabrasProhibidas");
 	}
 	
 	function conjuntoComentarios($idViaje) {
+		$con = "select * from Comentarios where idViaje=\"" . $idViaje . "\";";
+		//echo $con;
 		return BaseDeDatosViajes::consulta("select * from Comentarios where idViaje=\"" . $idViaje . "\";");
 	}
-	
+	*/
 	/*
 		Formato devuelto:
 			[ "referencia" => [referencia1, ...], "contenidoNavegacion" => [contenido1, ...] ]
@@ -27,33 +31,6 @@
 			
 		return $resultado;
 	}
-	
-	function getViajes($id = "-1") {
-		$sql = ($id == -1) ? "select * from Viajes;" : "select * from Viajes where id=\"" .
-			$id . "\";";
-			
-		return BaseDeDatosViajes::consulta($sql);
-	}
-	
-	function getViajePorNombre($nombre) {
-		return consulta("select * from Viajes where ciudad=\"" . $nombre . "\";");
-	}
 
-	/*
-		pre: Palabras clave debe ser mayor que uno
-	*/
 	
-	function getViajesPorPalabrasClave($palabrasClave) {
-		$arrayPalabras = explode(",", $palabrasClave);
-		
-		$consulta = "select * from Viajes where palabrasClave like '%{$arrayPalabras[0]}%'";
-		$tamArray = count($arrayPalabras);
-		
-		for($i = 1; $i < $tamArray; $i++)
-			$consulta .= " or palabrasClave like '%{$arrayPalabras[$i]}%'";
-		
-		$consulta .= ";";
-			
-		return BaseDeDatosViajes::consulta($consulta);
-	}
 ?>
