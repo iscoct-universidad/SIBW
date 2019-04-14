@@ -1,0 +1,15 @@
+#principal {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+#formulario {
+	margin-left: 2%;
+	margin-top: 2%;
+}
+
+#listaCiudades {
+	list-style-type: none;
+}

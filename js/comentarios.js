@@ -1,7 +1,7 @@
 function showComments() {
     console.log("Se llama correctamente a la función");
 
-    document.getElementById("principalAntes").id = "principal";
+    document.getElementById("principal").id = "principalDespues";
     document.getElementById("apartadoComentarios").style.display = "block";
 }
 
@@ -60,18 +60,62 @@ function addComment() {
     console.log("Real email: " + realEmail);
 
     if(condicionTexto && condicionEmail && condicionAutor && realEmail > -1) {
-        const palabrasProhibidas = ["palabra1", "palabra2", "palabra3", "palabra4",
-        "palabra5", "palabra6", "palabra7", "palabra8", "palabra9", "palabra10"];
-        let encontrado = false;
-        let i = 0;
-        let tam = palabrasProhibidas.length;
+		let ajax = new XMLHttpRequest();
+		
+		ajax.onreadystatechange = function() {
+			if(this.readyState == 4 && this.status == 200) {
+				console.log("Hasta aquí llegamos bien");
+				console.log("La respuesta que recibimos desde el servidor es: " + this.responseText);
+				
+				const palabrasProhibidas = this.responseText.split(" ").pop();
+				
+				console.log("Hasta aquí llegamos bien");
+				console.log("La respuesta que recibimos desde el servidor es: " + this.responseText);
+				
+				for(let palabra of palabrasProhibidas) {
+					console.log("Palabra prohibida actual: " + palabra);
+				    texto = texto.replace(palabra, "*");
+				}
 
-        for(let palabra of palabrasProhibidas)
-            texto = texto.replace(palabra, "*");
+				addBloqueComentario(autor, texto);
 
-        addBloqueComentario(autor, texto);
-
+				let xmlHttp = new XMLHttpRequest();
+				let params = "idViaje=0&nombreAutor=" + autor + "&texto=" + texto;
+				
+				xmlHttp.onreadystatechange = function () {
+					if(this.readyState == 4 && this.status == 200) {
+						console.log(this.responseText);
+						console.log("Se ha insertado la tupla en la base de datos con éxito");
+					}
+				};
+		
+				xmlHttp.open("POST", "http://localhost/prueba2/addComentario.php", true);
+				xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				xmlHttp.send(params);
+			}
+		}
+		
+		ajax.open("GET", "http://localhost/prueba2/consultaPalabrasProhibidas.php", true);
+		ajax.send();
     } else {
         alert("No ha introducido todos los campos en el formulario o el email no es válido");
     }
+}
+
+function guardarBorrador() {
+	localStorage.nombre = document.getElementsByName("name")[0].value;
+	localStorage.email = document.getElementsByName("email")[0].value;
+	localStorage.texto = document.getElementsByName("text")[0].value;
+	
+	console.log("Hasta aquí hemos llegado");
+	console.log("Valor de localStorage.nombre: " + localStorage.nombre);
+}
+
+function ventanaEmergente(redSocial) {
+	let tituloEvento = document.getElementById("tituloEvento").innerHTML;
+	let imagen = document.getElementsByClassName("imagenes")[0].src;
+	
+	window.open("./mensajeRedSocial.php?tituloEvento=" + tituloEvento + "&imagen=" +
+		imagen + "&redSocial=" + redSocial, 
+		"_blank", "channelmode=yes,resizable=yes,fullscreen=yes");
 }

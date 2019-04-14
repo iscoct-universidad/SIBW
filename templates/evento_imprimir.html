@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Viajes</title>
+        <link rel="stylesheet" href="css/evento_imprimir.css"/>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    </head>
+    <body>
+    	<header class="borde">
+            <a href="principal.html"><img id="imagenAvion" src="img/avion.jpg" alt="Logotipo de la agencia de viajes"/></a>
+    	</header>
+    	<section>
+    		<main class="borde" id="descripcion">
+                <section id="imagen-principal">
+                    <img src='{{ viaje["imagenes"][0] }}' alt="Foto principal"/>
+                </section>
+                <section id="imagenes">
+                    {% for imagen in viaje["imagenes"] %}
+                    <img class="imagenes" id="imagen{{ loop.index }}" src='{{ imagen }}' alt="Foto descriptiva número {{ loop.index }}"/>
+                    {% endfor %}
+                </section>
+                <h2 class="contenidoDesc" id="tituloEvento">{{ viaje["ciudad"] }}</h2>
+                <dl class="contenidoDesc">
+                  <dt class="contenidoDesc">Organizador:</dt>
+                  <dd class="contenidoDesc">Cotán</dd>
+                  <dt class="contenidoDesc">Fecha: </dt>
+                  <dd class="contenidoDesc">{{ viaje["fecha"] }}</dd>
+                </dl>
+                <p class="contenidoDesc descripcion">
+                    {{ viaje["texto"] }} 
+                </p>
+                <p class="contenidoDesc descripcion">
+                    Cras interdum ultricies elit non laoreet. Donec ac semper nulla. Sed tempor eu orci ac tincidunt. Pellentesque gravida enim eu sapien accumsan, id vehicula est suscipit. Nullam tempor fermentum arcu, at tincidunt diam consectetur tempus. Donec sollicitudin, ex at faucibus ullamcorper, eros diam posuere risus, quis tincidunt tellus erat eu lorem. Praesent non tincidunt ligula, quis malesuada nunc. Maecenas sollicitudin, mi in laoreet ultricies, tellus nisl lobortis nisl, sed molestie nibh magna non augue. Vivamus eu felis purus. Integer interdum a felis et dictum. Vestibulum eget mauris mollis, dictum nunc ac, lacinia nisi. Aliquam rutrum quis nisi sed tempus. In feugiat, nulla eget pellentesque imperdiet, mauris sem condimentum felis, sit amet fringilla neque velit eu ligula. Pellentesque id consequat nunc. Nunc ornare sollicitudin porta. Pellentesque a elit ac augue egestas faucibus.
+                </p>
+                {% if viaje["videos"] %}
+                <section id="videos">
+                    <h2 class="contenidoDesc">Videos</h2>
+                    {% for video in viaje["videos"] %}
+                    <a class="videos" id="video{{ loop.index }}" href='{{ video }}'>{{ video }}</a>
+                    {% endfor %}
+                </section>
+                {% endif %}
+            </main>
+    	</section>
+   	</body>
+</html>
