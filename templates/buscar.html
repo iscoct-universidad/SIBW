@@ -1,0 +1,11 @@
+{% extends "templates/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="css/buscar.css"/>
+{% endblock %}
+{% block main %}
+	<main class="borde">
+		<form id="formulario" action="./buscarPorPalabrasClaves.php">
+			Buscar por palabras claves: <input id="palabrasClaves" name="palabrasClaves" type="text"> <input type="submit" value="Aceptar">
+		</form>		
+	</main>
+{% endblock %}

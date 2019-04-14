@@ -67,35 +67,37 @@ function addComment() {
 				console.log("Hasta aquí llegamos bien");
 				console.log("La respuesta que recibimos desde el servidor es: " + this.responseText);
 				
-				const palabrasProhibidas = this.responseText.split(" ").pop();
-				
+				//const palabrasProhibidas = this.responseText.split(" ").pop();
+				const palabrasProhibidas = JSON.parse(this.responseText);
+
 				console.log("Hasta aquí llegamos bien");
-				console.log("La respuesta que recibimos desde el servidor es: " + this.responseText);
+				console.log("Palabras prohibidas después del json: " + palabrasProhibidas[0].palabraProhibida);
 				
 				for(let palabra of palabrasProhibidas) {
-					console.log("Palabra prohibida actual: " + palabra);
-				    texto = texto.replace(palabra, "*");
+					console.log("Palabra prohibida actual: " + palabra.palabraProhibida);
+				    texto = texto.replace(palabra.palabraProhibida, "*");
 				}
 
 				addBloqueComentario(autor, texto);
 
 				let xmlHttp = new XMLHttpRequest();
-				let params = "idViaje=0&nombreAutor=" + autor + "&texto=" + texto;
+				let idViaje = document.getElementById("conjuntoComentarios").getAttribute("idViaje");
+				let params = "idViaje=0&nombreAutor=" + autor + "&texto=" + texto + "&idViaje=" +  idViaje;
 				
 				xmlHttp.onreadystatechange = function () {
 					if(this.readyState == 4 && this.status == 200) {
 						console.log(this.responseText);
-						console.log("Se ha insertado la tupla en la base de datos con éxito");
+						console.log("Se ha recibido una respuesta correcta por parte del servidor");
 					}
 				};
 		
-				xmlHttp.open("POST", "http://localhost/prueba2/addComentario.php", true);
+				xmlHttp.open("POST", "http://localhost/SIBW/addComentario.php", true);
 				xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				xmlHttp.send(params);
 			}
 		}
 		
-		ajax.open("GET", "http://localhost/prueba2/consultaPalabrasProhibidas.php", true);
+		ajax.open("GET", "http://localhost/SIBW/consultaPalabrasProhibidas.php", true);
 		ajax.send();
     } else {
         alert("No ha introducido todos los campos en el formulario o el email no es válido");

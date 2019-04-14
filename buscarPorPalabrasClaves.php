@@ -1,6 +1,5 @@
 <?php
 	require_once './vendor/autoload.php';
-	
 	require_once 'php/operaciones.inc.php';
 	require_once 'php/Viaje.inc.php';
 	
@@ -14,16 +13,18 @@
 	$navegacionLateral = getNavegacion('Lateral');
 	$palabrasClaves = $_GET["palabrasClaves"];
 	
+
+
 	if($palabrasClaves != null) {
-		$viajes = getViajesPorPalabrasClave($palabrasClaves);
+		$viajes = Viaje::getViajesPorPalabrasClave($palabrasClaves);
 		$ciudades = [];
 		
-		foreach($viajes as $v)
-			array_push($ciudades, $v -> ciudad);
+		foreach($viajes as $viaje)
+			array_push($ciudades, ["nombre" => $viaje -> getCiudad(),
+								   "id"		=> $viaje -> getId()]);
 			
 	} else
 		$viajes = null;
-	
 	
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral, 
 	'ciudades' => $ciudades];

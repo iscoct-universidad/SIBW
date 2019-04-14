@@ -1,17 +1,19 @@
 create table if not exists Comentarios (
-	idViaje varchar(64),
-	ipUtilizada varchar(64),
+	idViaje int,
+	idComentario int,
+	ipUtilizada varchar(16),
 	nombreAutor varchar(64),
 	fecha date,
 	hora time,
 	email varchar(128),
 	texto varchar(256),
-		PRIMARY KEY(nombreAutor, fecha, hora),
+		PRIMARY KEY(idViaje, idComentario),
 		FOREIGN KEY(idViaje) references Viajes(id) on delete cascade
 );
 
 insert into Comentarios values (
-	"0",
+	1,
+	1,
 	"123.123.123.123",
 	"Francisco Jose Cotan Lopez",
 	date("1996-07-16"),
@@ -21,7 +23,8 @@ insert into Comentarios values (
 );
 
 insert into Comentarios values (
-	"0",
+	1,
+	2,
 	"123.123.123.123",
 	"Pedro Luis Fuertes",
 	date("2019-3-22"),
