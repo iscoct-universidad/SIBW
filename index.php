@@ -1,6 +1,6 @@
 <?php
 	require_once './vendor/autoload.php';
-	require_once './php/operaciones.inc.php';
+	require_once './php/Navegacion.inc.php';
 	require_once './php/BaseDeDatosViajes.inc.php';
 	require_once 'php/Viaje.inc.php';
 	
@@ -10,11 +10,10 @@
 	
 	# Preparación de los argumentos a enviar
         
-	$navegacionSuperior = getNavegacion('Superior');
-	$navegacionLateral = getNavegacion('Lateral');
+	$navegacionSuperior = Navegacion::get_navegacion('Superior');
+	$navegacionLateral = Navegacion::get_navegacion('Lateral');
 	$viajes = Viaje::getViajes();
 	$eventos = [];
-	
 	foreach($viajes as $v) {
 		$imagenes = $v -> getImagenes();
 		$imagenPrincipal = $imagenes[0];

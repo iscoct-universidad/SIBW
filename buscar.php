@@ -1,6 +1,6 @@
 <?php
 	require_once './vendor/autoload.php';
-	require_once 'php/operaciones.inc.php';
+	require_once 'php/Navegacion.inc.php';
 	require_once 'php/Viaje.inc.php';
 	
 	$loader = new \Twig\Loader\FilesystemLoader('.');
@@ -9,8 +9,8 @@
 	
 	# Preparación de los argumentos a enviar
         
-	$navegacionSuperior = getNavegacion('Superior');
-	$navegacionLateral = getNavegacion('Lateral');	
+	$navegacionSuperior = Navegacion::get_navegacion('Superior');
+	$navegacionLateral = Navegacion::get_navegacion('Lateral');	
 	
 	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral];
 

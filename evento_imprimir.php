@@ -1,7 +1,5 @@
 <?php
 	require_once './vendor/autoload.php';
-	require_once './php/BaseDeDatosViajes.inc.php';
-	require_once 'php/operaciones.inc.php';
 	require_once 'php/Viaje.inc.php';
 	
 	$loader = new \Twig\Loader\FilesystemLoader('.');
