@@ -15,7 +15,7 @@ function test_string($string_in, $max_size = -1){
 	if($max_size > 0)
 		$string = substr($string_in, 0, $max_size);
 
-	return input_filter($string);
+	return input_filter($string, FALSE);
 
 }
 
@@ -25,7 +25,7 @@ function test_email($email, $max_size = 30){
 	if($max_size > 0)
 		$string = substr($email, 0, $max_size);
 
-	$string = input_filter($string);
+	$string = input_filter($string, FALSE);
 	$out = [$string, filter_var($string, FILTER_VALIDATE_EMAIL)];
 	return $out;
 
