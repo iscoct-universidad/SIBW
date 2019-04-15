@@ -27,12 +27,12 @@ class BaseDeDatos
 	}
 
 	public function getConexion() {
-
 		if(! $this->conexion){
 			$this->conexion = new mysqli($this->server, $this->user, $this->password, $this->baseDeDatos);
 		
 			if(! $this->conexion)
 				die("Conexión fallida: ");
+			$this->conexion->set_charset("utf8");
 		}
 		
 		return $this->conexion; 

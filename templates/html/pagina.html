@@ -1,0 +1,18 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="templates/css/pagina.css"/>
+{% endblock %}
+{% block main %}
+	<main class="borde">
+		<section id="pagina">
+        {% if pagina %}
+			<h1>{{pagina['titulo']}}</h1>
+			<section id="pagina-texto">
+				{{pagina['texto'] | raw }}
+			</section>
+		{% else %}
+			<p id="pagina-error">Error: Página no encontrada</p>
+		{% endif %}
+		</section>
+	</main>
+{% endblock %}

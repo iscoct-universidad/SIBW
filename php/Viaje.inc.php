@@ -22,6 +22,8 @@
 		
 		public static function getViajePorNombre($nombre) {
 
+			$nombre = test_string($nombre, 64);
+
 			$consulta = BaseDeDatosViajes::consultaconsulta("select * from Viajes where ciudad=\"" . $nombre . "\";");
 			$viajes; 
 			for($i = 0; $i < count($consulta); ++$i) {
