@@ -58,7 +58,7 @@
 	//var_dump($comentarios);
 
 	$comments = [];
-	
+	if($comentarios)
 	foreach($comentarios as $com) {
 		array_push($comments, [ 
 								"nombreAutor" => $com -> get_nombreAutor(),
