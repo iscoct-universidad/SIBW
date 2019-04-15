@@ -17,7 +17,7 @@
 		public static function getComentarios($idViaje) {
 			$consulta = BaseDeDatosViajes::consulta("select * from Comentarios where idViaje=\"$idViaje\" ;");
 
-			$comentarios; 
+			$comentarios = []; 
 			for($i = 0; $i < count($consulta); ++$i) {
 			    $comentarios[$i] = new ComentarioVO($consulta[$i]);
 			}
