@@ -14,7 +14,7 @@
             <nav>
                 <ul id="menuCabecera">
                     {% for nav in navegacionSuperior %}
-                        <li class="elementoMenu"><a href="{{ nav['referencia'] }}">{{ nav["contenido"] }}</a></li>
+                        <li class="elementoMenu"><a href="{{ nav.get_enlace() }}">{{ nav.get_titulo() }}</a></li>
                     {% endfor %}
                 </ul>
             </nav>
@@ -23,7 +23,7 @@
             <aside class="borde" id="navegacionLateral">
             <ul id="listaLateral" class="flex-container flex-direction-column">
                 {% for elemento in navegacionLateral %}
-                    <li class="elementoMenu"><a href="{{ elemento['referencia'] }}">{{ elemento["contenido"] }}</a></li>
+                    <li class="elementoMenu"><a href="{{ elemento.get_enlace() }}">{{ elemento.get_titulo() }}</a></li>
                 {% endfor %}
             </ul>
         </aside>
