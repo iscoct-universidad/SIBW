@@ -1,0 +1,16 @@
+#pagina {
+	margin: 1em;
+}
+
+#principal {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+#pagina-error {
+	color: red;
+	font-weight: bold;
+	font-size: x-large;
+}

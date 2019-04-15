@@ -1,9 +1,10 @@
 <?php 
 
-function input_filter($data) {
+function input_filter($data, $html) {
   $data = trim($data);
   $data = stripslashes($data);
-  $data = htmlspecialchars($data);
+  if(!$html)
+  	$data = htmlspecialchars($data);
 
   return filter_var($data, FILTER_SANITIZE_STRING);
 }
