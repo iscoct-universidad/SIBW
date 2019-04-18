@@ -2,13 +2,13 @@
 <html>
     <head>
         <title>Viajes</title>
-        <link rel="stylesheet" href="css/evento_imprimir.css"/>
+        <link rel="stylesheet" href="templates/css/evento_imprimir.css"/>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
     </head>
     <body>
     	<header class="borde">
-            <a href="principal.html"><img id="imagenAvion" src="img/avion.jpg" alt="Logotipo de la agencia de viajes"/></a>
+            <a href="/SIBW"><img id="imagenAvion" src="templates/img/avion.jpg" alt="Logotipo de la agencia de viajes"/></a>
     	</header>
     	<section>
     		<main class="borde" id="descripcion">
@@ -37,7 +37,7 @@
                 <section id="videos">
                     <h2 class="contenidoDesc">Videos</h2>
                     {% for video in viaje["videos"] %}
-                    <a class="videos" id="video{{ loop.index }}" href='{{ video }}'>{{ video }}</a>
+                    <a class="videos" id="video{{ loop.index }}" href='{{ video[0] }}'>{{ video[0] }}</a>
                     {% endfor %}
                 </section>
                 {% endif %}

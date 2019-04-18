@@ -1,3 +1,4 @@
+/*
 #galeriaFotos {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -13,7 +14,13 @@
     padding: 5px;
     display: block;
 }
-
+*/
+#galeriaFotos > div{
+    max-height: 10em; 
+}
+.imagenes {
+    max-height: 9em;
+}
 #principal {
     margin-top: 10px;
     margin-bottom: 10px;

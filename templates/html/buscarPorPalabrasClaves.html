@@ -1,0 +1,22 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="templates/css/buscar.css"/>
+{% endblock %}
+{% block main %}
+	<main class="borde">
+		<form id="formulario" action="./buscarPorPalabrasClaves.php">
+			Buscar por palabras claves: <input id="palabrasClaves" name="palabrasClaves" type="text"> <input type="submit" value="Aceptar">
+		</form>
+		
+		{% if ciudades != null %}
+			<li id="listaCiudades">
+			{% for city in ciudades %}
+				<ul class="ciudades"><a href="./evento.php?idViaje={{city['id']}}">{{ city['nombre'] }}</a></ul>
+			{% endfor %}
+			</li>
+		{% else %}
+			<p>No se han encontrado ciudades.</p>
+		{% endif %}
+		
+	</main>
+{% endblock %}

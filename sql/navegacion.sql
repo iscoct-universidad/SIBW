@@ -10,15 +10,15 @@ create table if not exists Navegacion (
 );
 
 insert into Navegacion values(
-	'Viaja,Tus vuelos,Antes de viajar,Galeria',
-	'www.google.es,www.google.es,www.google.es,./galeria.php',
+	'Antes de viajar,Galeria, Buscar, Sobre Nosotros',
+	'./pagina.php?idPagina=2,./galeria.php, ./buscar.php, ./pagina.php?idPagina=1',
 	'Superior',
 	'Publico'
 );
 
 insert into Navegacion values(
-	'Check-in,Tus reservas,Estados vuelos,Buscar por palabras claves',
-	'www.google.es,www.google.es,www.google.es,./buscarPorPalabrasClaves.php',
+	'Sobre Nosotros,Antes de viajar,Buscar',
+	'./pagina.php?idPagina=1,./pagina.php?idPagina=2,./buscar.php',
 	'Lateral',
 	'Publico'
 );

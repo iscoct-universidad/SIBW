@@ -1,12 +1,12 @@
-{% extends "templates/base.html" %}
+{% extends "templates/html/base.html" %}
 {% block css %}
-        <link rel="stylesheet" href="css/evento.css"/>
+        <link rel="stylesheet" href="templates/css/evento.css"/>
 {% endblock %}
 {% block main %}
             <main class="borde" id="descripcion">
                 <section id="imagenes">
-                    <img class="imagenes" src="{{ viaje["imagenSecundaria1"] }}" alt="Foto descriptiva número 1"/>
-                    <img class="imagenes" src="{{ viaje["imagenSecundaria2"] }}" alt="Esta es la ruta {{ viaje["imagenSecundaria2"] }}"/>
+                    <img class="imagenes" src="{{ viaje['imagenSecundaria1'] }}" alt="Foto descriptiva número 1"/>
+                    <img class="imagenes" src="{{ viaje['imagenSecundaria2'] }}" alt="Esta es la ruta {{ viaje['imagenSecundaria2'] }}"/>
                 </section>
                 <h2 class="contenidoDesc" id="tituloEvento">{{ viaje["ciudad"] }}</h2>
                 <dl class="contenidoDesc">
@@ -22,13 +22,15 @@
                 <p class="contenidoDesc">
                    {{ viaje["texto"] }}
                 </p>
-                
+                <section>
+                    
                 {% if viaje["video"] != null %}
 		            <video controls>
-		            	<source src="{{ viaje["video"] }}" type="{{ viaje["formatoVideo"] }}">
+		            	<source src="{{ viaje['video'] }}" type="{{ viaje['formatoVideo'] }}">
 		            	Your browser doesn't support HTML5 video
 		            </video>
                 {% endif %}
+                </section>
                 
                 <button type="button">Contactar</button>
 
@@ -37,30 +39,29 @@
                 <button type="button" onclick="showComments()">Comentarios</button>
 
                 <article id="redesSocialesEvento">
-                    <a  href="#" onclick="ventanaEmergente('Facebook')"><img class="logosRedesSocialesEvento" src="img/fb-logo.jpg"></a>
-                    <a  href="#" onclick="ventanaEmergente('Twitter')"><img class="logosRedesSocialesEvento" src="img/tw-logo.jpg"></a>
-                    <a  href="evento_imprimir.php"><img class="logosRedesSocialesEvento" src="img/imprimir-logo.jpg"></a>
+                    <a  href="#" onclick="ventanaEmergente('Facebook')"><img class="logosRedesSocialesEvento" src="templates/img/fb-logo.jpg"></a>
+                    <a  href="#" onclick="ventanaEmergente('Twitter')"><img class="logosRedesSocialesEvento" src="templates/img/tw-logo.jpg"></a>
+                    <a  href="evento_imprimir.php?idViaje={{ viaje['id'] }}"><img class="logosRedesSocialesEvento" src="templates/img/imprimir-logo.jpg"></a>
                 </article>
             </main>
 
             <aside class="borde" id="apartadoComentarios">
 
-                <div id="conjuntoComentarios">
+                <div id="conjuntoComentarios" idViaje="{{ viaje['id'] }}">
                     {% for com in comentarios %}
-                    
                         <div class="comentario">
-                        <p class="autores">Autor: {{ com["nombreAutor"] }}</p>
-                        <p class="fechas">Fecha: {{ com["fecha"] }}</p>
-                        <p class="horas">Hora: {{ com["hora"] }}</p>
-                        <p class="textos">Texto: {{ com["texto"] }}</p>
+                            <p class="autores">Autor: {{ com["nombreAutor"] }}</p>
+                            <p class="fechas">Fecha: {{ com["fecha"] }}</p>
+                            <p class="horas">Hora: {{ com["hora"] }}</p>
+                            <p class="textos">Texto: {{ com["texto"] }}</p>
                         </div>
                     {% endfor %}
                 </div>
 
                 <section id="formulario">
-                    Nombre: <input class="introducido" type="text" name="name" value="name"><br>
-                    Email: <input class="introducido" type="text" name="email" value="email"><br>
-                    Texto: <input class="introducido" type="text" name="text" value="text"><br>
+                    <label>Nombre: <input class="introducido" type="text" name="name" value="name"></label><br>
+                    <label>Email: <input class="introducido" type="text" name="email" value="email"></label><br>
+                    <label>Texto: <input class="introducido" type="text" name="text" value="text"></label><br>
                     <button type="button" onclick="addComment()">Enviar formulario</button>
                     <button type="button" onclick="guardarBorrador()">Guardar borrador</button>
                 </section>
@@ -74,5 +75,5 @@
             </aside>
 {% endblock %}
 {% block javaScript %}
-        <script src="js/comentarios.js"></script>
+        <script src="templates/js/comentarios.js"></script>
 {% endblock %} 

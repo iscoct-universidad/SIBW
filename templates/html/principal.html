@@ -1,0 +1,16 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="templates/css/principal.css"/>
+{% endblock %}
+{% block main %}
+            <main class="borde" id="conjuntoEventos">
+            {% for event in eventos %}
+            <div>
+            	<a href="{{ event['href'] }}">
+            		<img class="imagenes" src={{ event['imagenFuente'] }} alt="Viaje hacia {{ event['ciudad'] }}"/>
+            		<p class="ciudad">{{ event.ciudad }}</p>
+            	</a>
+            </div>
+            {% endfor %}
+            </main>
+{% endblock %}

@@ -1,7 +1,7 @@
 <?php
 	require_once './vendor/autoload.php';
 	
-	require_once 'php/operaciones.inc.php';
+	require_once 'php/Navegacion.inc.php';
 	require_once 'php/Viaje.inc.php';
 	
 	$loader = new \Twig\Loader\FilesystemLoader('.');
@@ -17,7 +17,7 @@
 		$argumentos = ["redSocial" => $redSocial, "imagen" => $imagen, "tituloEvento" => $tituloEvento];
 	}
 	
-	$template = $twig -> load('./templates/mensaje.html');
+	$template = $twig -> load('./templates/html/mensaje.html');
 	
 	echo $template -> render($argumentos);
 ?>

@@ -1,0 +1,21 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="templates/css/galeria.css"/>
+{% endblock %}
+{% block main %}
+	<main class="borde" id="galeria">
+		{% for v in viajes %}
+			<div>
+				<h2 id="ciudad">{{ v["ciudad"] }}</h2>
+				
+				<div id="galeriaFotos" class="flex-container justify-content-space-around flex-wrap-wrap">
+					{% for img in v["imagenes"] %}
+						<div>
+							<img class="imagenes" src="{{ img }}" alt="Viaje hacia {{ v['ciudad'] }}" />
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		{% endfor %}
+	</main>
+{% endblock %}
