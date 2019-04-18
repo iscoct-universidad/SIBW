@@ -21,11 +21,48 @@
         </header>
         <section id="principal">
             <aside class="borde" id="navegacionLateral">
-            <ul id="listaLateral" class="flex-container flex-direction-column">
-                {% for elemento in navegacionLateral %}
-                    <li class="elementoMenu"><a href="{{ elemento.get_enlace() }}">{{ elemento.get_titulo() }}</a></li>
-                {% endfor %}
-            </ul>
+            <nav>
+                <ul id="listaLateral" class="flex-container flex-direction-column">
+                    {% for elemento in navegacionLateral %}
+                        <li class="elementoMenu"><a href="{{ elemento.get_enlace() }}">{{ elemento.get_titulo() }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <section id="login">
+              <form action="/login.php" method="POST">
+                <div class="flex-container flex-direction-column">
+                  <label for="user">Usuario</label>
+                  <input type="text" placeholder="Introduce tu Usuario" name="user" required>
+
+                  <label for="pass">Contraseña</label>
+                  <input type="password" placeholder="Introduce tu Contraseña" name="pass" required>
+                      
+                  <button type="submit">Login</button>
+                </div>
+                <!--
+                <div class="container" style="background-color:#f1f1f1">
+                  <button type="button" class="cancelbtn">Cancel</button>
+                  <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+              -->
+              </form>
+            </section>
+            <section id="loged">
+              <section id="loged-nombre-usuario">
+                <p>Pedro Luis</p>
+              </section>
+              <section id="loged-tipo-usuario">
+                <p>Administrador</p>
+              </section>
+              <section id="loged-botones" class="flex-container justify-content-space-around">
+                <section id="loged-botones-editar">
+                  <button>Editar</button>
+                </section>
+                <section id="loged-botones-logout">
+                  <button>Logout</button>
+                </section>
+              </section>
+            </section>
         </aside>
             {% block main %}{% endblock %}            
         </section>
