@@ -42,7 +42,7 @@
 			
 			$elementosNavegacion = [];
 			
-			for($i = 0; $i < count($this->referencias)-1; $i++)
+			for($i = 0; $i < count($this->referencias); $i++)
 				array_push($elementosNavegacion, new ElementoNavegacionVO($this->contenidoNavegacion[$i], $this->referencias[$i], $this->tipo, $this->publicoObjetivo ));
 
 			return $elementosNavegacion; 
