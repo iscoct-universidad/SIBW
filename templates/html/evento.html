@@ -49,29 +49,30 @@
 
                 <div id="conjuntoComentarios" idViaje="{{ viaje['id'] }}">
                     {% for com in comentarios %}
-                        <div class="comentario">
+                        <div id="{{ com['idComentario'] }}" class="comentario">
                             <p class="autores">Autor: {{ com["nombreAutor"] }}</p>
                             <p class="fechas">Fecha: {{ com["fecha"] }}</p>
                             <p class="horas">Hora: {{ com["hora"] }}</p>
                             <p class="textos">Texto: {{ com["texto"] }}</p>
                         </div>
+                        
+                        {% if usuario and usuario['tipoUsuario'] != anonimo and
+                        		usuario['tipoUsuario'] != registrado %}
+                        	<button type="button" onclick="mostrarEdicionComentario({{ com['idComentario'] }})">Editar</button>
+                        	<button type="button" onclick="removeComment({{ com['idComentario'] }})">Eliminar</button>
+                        {% endif %}
                     {% endfor %}
                 </div>
 
-                <section id="formulario">
-                    <label>Nombre: <input class="introducido" type="text" name="name" value="name"></label><br>
-                    <label>Email: <input class="introducido" type="text" name="email" value="email"></label><br>
-                    <label>Texto: <input class="introducido" type="text" name="text" value="text"></label><br>
-                    <button type="button" onclick="addComment()">Enviar formulario</button>
-                    <button type="button" onclick="guardarBorrador()">Guardar borrador</button>
-                </section>
-				<script type="text/javascript">
-					if(localStorage.nombre) {
-						document.getElementsByName("name")[0].value = localStorage.nombre;
-						document.getElementsByName("email")[0].value = localStorage.email;
-						document.getElementsByName("text")[0].value = localStorage.text;
-					}
-				</script>
+				{% if usuario and usuario.tipoUsuario != anonimo %}
+		            <section id="formulario">
+		                <label>Nombre: <input class="introducido" type="text" name="name" value="name"></label><br>
+		                <label>Email: <input class="introducido" type="text" name="email" value="email"></label><br>
+		                <label>Texto: <input class="introducido" type="text" name="text" value="text"></label><br>
+		                <button type="button" onclick="addComment()">Enviar formulario</button>
+		                <button type="button" onclick="guardarBorrador()">Guardar borrador</button>
+		            </section>
+               	{% endif %}
             </aside>
 {% endblock %}
 {% block javaScript %}

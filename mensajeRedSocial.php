@@ -1,12 +1,6 @@
 <?php
-	require_once './vendor/autoload.php';
-	
-	require_once 'php/Navegacion.inc.php';
+	require_once './comun.php';
 	require_once 'php/Viaje.inc.php';
-	
-	$loader = new \Twig\Loader\FilesystemLoader('.');
-
-	$twig = new \Twig\Environment($loader);
 	
 	if($_SERVER["REQUEST_METHOD"] == "GET") {
 		echo "Aquí entramos correctamente\n";
@@ -17,7 +11,5 @@
 		$argumentos = ["redSocial" => $redSocial, "imagen" => $imagen, "tituloEvento" => $tituloEvento];
 	}
 	
-	$template = $twig -> load('./templates/html/mensaje.html');
-	
-	echo $template -> render($argumentos);
+	renderizarPlantilla('./templates/html/mensaje.html', $argumentos);
 ?>

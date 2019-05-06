@@ -1,17 +1,11 @@
 <?php
-	require_once './vendor/autoload.php';
-	require_once './php/Navegacion.inc.php';
+	require_once './comun.php';
 	require_once 'php/Comentario.inc.php';
 	require_once 'php/Viaje.inc.php';
 	
-	$loader = new \Twig\Loader\FilesystemLoader('.');
+	$argumentos = [];
+	prepararArgumentos($argumentos);
 
-	$twig = new \Twig\Environment($loader);
-	
-	# Preparación de los argumentos a enviar
-        
-	$navegacionSuperior = Navegacion::get_navegacion('Superior');
-	$navegacionLateral = Navegacion::get_navegacion('Lateral');
 	$idViaje = $_GET["idViaje"];
 	$msg_error; 
 
@@ -30,29 +24,21 @@
 	$imagenSecundaria2 = $imagenes[2];
 	$video = $viaje[0] -> getVideos();
 	
-	if( $video[0][0] )
-		$datosViajeAEnviar = [  "ciudad" => $viaje[0] -> getCiudad(),
-								"imagenSecundaria1" => $imagenSecundaria1,
-								"imagenSecundaria2" => $imagenSecundaria2,
-								"texto" => $viaje[0] -> getTexto(), 
-								"fecha" => $viaje[0] -> getFecha(),
-								"fechaPublicacion" => $viaje[0] -> getFechaPublicacion(),
-								"fechaModificacion" => $viaje[0] -> getFechaModificacion(),
-								"video" => $video[0][0],
-								"formatoVideo" => $video[0][1],
-								"id" => $viaje[0] -> getId(),
-		];
-	else
-		$datosViajeAEnviar = [  "ciudad" => $viaje[0] -> getCiudad(),
-								"imagenSecundaria1" => $imagenSecundaria1,
-								"imagenSecundaria2" => $imagenSecundaria2,
-								"texto" => $viaje[0] -> getTexto(), 
-								"fecha" => $viaje[0] -> getFecha(),
-								"fechaPublicacion" => $viaje[0] -> getFechaPublicacion(),
-								"fechaModificacion" => $viaje[0] -> getFechaModificacion(),
-								"id" => $viaje[0] -> getId(),
-		];
-
+	
+	$datosViajeAEnviar = [  "ciudad" => $viaje[0] -> getCiudad(),
+							"imagenSecundaria1" => $imagenSecundaria1,
+							"imagenSecundaria2" => $imagenSecundaria2,
+							"texto" => $viaje[0] -> getTexto(), 
+							"fecha" => $viaje[0] -> getFecha(),
+							"fechaPublicacion" => $viaje[0] -> getFechaPublicacion(),
+							"fechaModificacion" => $viaje[0] -> getFechaModificacion(),
+							"id" => $viaje[0] -> getId() ];
+							
+	if( $video[0][0] ) {
+		$datosViajeAEnviar['video'] = $video[0][0];
+		$datosViajeAEnviar['formatoVideo'] = $video[0][1];
+	}
+	
 	$comentarios = Comentario::getComentarios($idViaje);
 
 	//var_dump($comentarios);
@@ -64,13 +50,12 @@
 								"nombreAutor" => $com -> get_nombreAutor(),
 								"fecha"		  => $com -> get_fecha(), 
 								"hora"  	  => $com -> get_hora(),
-								"texto" 	  => $com -> get_texto() ]);
+								"texto" 	  => $com -> get_texto(),
+								"idComentario" => $com -> get_idcomentario() ]);
 	}
 	
-	$argumentos = ['navegacionSuperior' => $navegacionSuperior, 'navegacionLateral' => $navegacionLateral, 
-	'viaje' => $datosViajeAEnviar, 'comentarios' => $comments];
+	$argumentos['viaje'] = $datosViajeAEnviar;
+	$argumentos['comentarios']  = $comments;
 	
-	$template = $twig -> load('./templates/html/evento.html');
-	
-	echo $template -> render($argumentos);
+	renderizarPlantilla('./templates/html/evento.html', $argumentos);
 ?>

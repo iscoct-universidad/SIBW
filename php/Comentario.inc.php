@@ -38,7 +38,7 @@
 			$nombreAutor = test_string($nombreAutor, 64);
 			$texto = test_string($texto, 256);
 
-			$idComentario = BaseDeDatosViajes::getConexion() -> query("select COUNT(idComentario) from comentarios where idViaje=$idViaje") -> fetch_row();
+			$idComentario = BaseDeDatosViajes::getConexion() -> query("select COUNT(idComentario) from Comentarios where idViaje=\"$idViaje\";") -> fetch_row();
 
 			$idComentario = intval($idComentario[0]) + 1;
 
@@ -50,6 +50,12 @@
 				echo "Se ha insertado la tupla con éxito\n";
 			else
 				echo "Ha ocurrido un error al insertar la tupla\n";
+		}
+		
+		public static function removeComentario($idComentario) {
+			$sql = "delete from Comentarios where idComentario=\"$idComentario\";";
+			
+			return BaseDeDatosViajes::getConexion() -> query($sql);
 		}
 	}
 

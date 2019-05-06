@@ -10,15 +10,15 @@ create table if not exists Navegacion (
 );
 
 insert into Navegacion values(
-	'Antes de viajar,Galeria, Buscar, Sobre Nosotros',
-	'./pagina.php?idPagina=2,./galeria.php, ./buscar.php, ./pagina.php?idPagina=1',
+	'Inicio, Antes de viajar,Galeria, Buscar, Sobre Nosotros',
+	'./index.php,./pagina.php?idPagina=2,./galeria.php, ./buscar.php, ./pagina.php?idPagina=1',
 	'Superior',
 	'Publico'
 );
 
 insert into Navegacion values(
-	'Sobre Nosotros,Antes de viajar,Buscar',
-	'./pagina.php?idPagina=1,./pagina.php?idPagina=2,./buscar.php',
+	'Sobre Nosotros,Antes de viajar,Buscar,Crear usuario',
+	'./pagina.php?idPagina=1,./pagina.php?idPagina=2,./buscar.php,./crearUsuario.php',
 	'Lateral',
 	'Publico'
 );

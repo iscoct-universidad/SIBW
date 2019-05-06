@@ -1,5 +1,5 @@
 create table if not exists Comentarios (
-	idViaje int,
+	idViaje varchar(128),
 	idComentario int,
 	ipUtilizada varchar(16),
 	nombreAutor varchar(64),
@@ -7,8 +7,8 @@ create table if not exists Comentarios (
 	hora time,
 	email varchar(128),
 	texto varchar(256),
-		PRIMARY KEY(idViaje, idComentario),
-		FOREIGN KEY(idViaje) references Viajes(id) on delete cascade
+		PRIMARY KEY (idComentario),
+		FOREIGN KEY (idViaje) references Viajes(id)
 );
 
 insert into Comentarios values (

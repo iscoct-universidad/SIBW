@@ -41,67 +41,64 @@ function addComment() {
     let email = document.getElementsByName("email")[0].value;
     let autor = document.getElementsByName("name")[0].value;
     let realEmail = email.indexOf("@");
-    let condicionTexto = false;
-    let condicionAutor = false;
-    let condicionEmail = false;
-
-    if(texto != null)
-        condicionTexto = (texto.length > 0) ? true : false;
-
-    if(email != null)
-        condicionEmail = (email.length > 0) ? true : false;
-
-    if(autor != null)
-        condicionAutor = (autor.length > 0) ? true : false;
-
-    console.log("Texto: " + texto);
-    console.log("email: " + email);
-    console.log("Autor: " + autor);
-    console.log("Real email: " + realEmail);
-
+    let condicionTexto = (texto && texto.length > 0) ? true : false;
+    let condicionAutor = (email && email.length > 0) ? true : false;
+    let condicionEmail = (autor && autor.length > 0) ? true : false;
+    
     if(condicionTexto && condicionEmail && condicionAutor && realEmail > -1) {
-		let ajax = new XMLHttpRequest();
+		let cabecera = {
+			method: 'GET',
+			mode: 'cors'
+		};
 		
-		ajax.onreadystatechange = function() {
-			if(this.readyState == 4 && this.status == 200) {
-				console.log("Hasta aquí llegamos bien");
-				console.log("La respuesta que recibimos desde el servidor es: " + this.responseText);
-				
-				//const palabrasProhibidas = this.responseText.split(" ").pop();
-				const palabrasProhibidas = JSON.parse(this.responseText);
-
-				console.log("Hasta aquí llegamos bien");
-				console.log("Palabras prohibidas después del json: " + palabrasProhibidas[0].palabraProhibida);
-				
-				for(let palabra of palabrasProhibidas) {
-					console.log("Palabra prohibida actual: " + palabra.palabraProhibida);
-				    texto = texto.replace(palabra.palabraProhibida, "*");
-				}
-
-				addBloqueComentario(autor, texto);
-
-				let xmlHttp = new XMLHttpRequest();
-				let idViaje = document.getElementById("conjuntoComentarios").getAttribute("idViaje");
-				let params = "idViaje=0&nombreAutor=" + autor + "&texto=" + texto + "&idViaje=" +  idViaje;
-				
-				xmlHttp.onreadystatechange = function () {
-					if(this.readyState == 4 && this.status == 200) {
-						console.log(this.responseText);
-						console.log("Se ha recibido una respuesta correcta por parte del servidor");
-					}
-				};
-		
-				xmlHttp.open("POST", "http://localhost/SIBW/addComentario.php", true);
-				xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				xmlHttp.send(params);
+		fetch("http://localhost:8080/consultaPalabrasProhibidas.php", cabecera)
+						.then((res) => {
+			return res.json();	
+		}).then((palabrasProhibidas) => {
+			for(let palabra of palabrasProhibidas) {
+				console.log("Palabra prohibida actual: " + palabra.palabraProhibida);
+			    texto = texto.replace(palabra.palabraProhibida, "*");
 			}
-		}
-		
-		ajax.open("GET", "http://localhost/SIBW/consultaPalabrasProhibidas.php", true);
-		ajax.send();
-    } else {
-        alert("No ha introducido todos los campos en el formulario o el email no es válido");
-    }
+			
+			addBloqueComentario(autor, texto);
+			
+			let idViaje =
+				document.getElementById("conjuntoComentarios").getAttribute("idViaje");
+			let datosPost = new FormData();
+			
+			datosPost.append('nombreAutor', autor);
+			datosPost.append('texto', texto);
+			datosPost.append('idViaje', idViaje);
+			
+			cabecera = {
+				method: 'POST',
+				mode: 'cors',
+				body: datosPost
+			};
+			
+			fetch("http://localhost:8080/addComentario.php", cabecera).then((res) => {
+				res.text();
+			}).then((texto) => {
+				console.log(texto);
+				console.log("Se ha recibido una respuesta correcta por parte del servidor");
+			});
+			
+		});
+	}
+}
+
+function removeComment(idComentario) {
+	let cabecera = {};
+
+	cabecera = {
+		method: 'GET'
+	};
+	
+	fetch(`http://localhost:8080/removeComment.php?idComentario=${idComentario}`, cabecera).then((res) => {
+		return res.text();
+	}).then((texto) => {
+		console.log(`Texto: ${texto}`);
+	});
 }
 
 function guardarBorrador() {
