@@ -1,0 +1,24 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="templates/css/editarUsuario.css"/>
+{% endblock %}
+{% block main %}
+
+			<main class="borde">
+				<form id="formEditarUsuario" method="post">
+					Nombre
+					<input type="text" name="nombre" value="{{ usuario.nombre }}" required/>
+					Genero <select name="genero">
+						<option disabled default>Introduzca un género</option>
+						<option value="masculino">Masculino</option>
+						<option value="femenino">Femenino</option>
+					</select>
+					Password
+					<input type="password" name="passwd" required />
+					Confirm password
+					<input type="password" name="confirmPasswd" required />
+					<input type="submit" value="Enviar"/>
+				</form>
+			</main>
+			
+{% endblock %}

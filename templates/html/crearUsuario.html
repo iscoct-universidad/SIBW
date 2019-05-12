@@ -1,0 +1,61 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="templates/css/crearUsuario.css"/>
+{% endblock %}
+{% block main %}
+
+			<main id="main" class="borde">
+				<form id="crearUsuario">
+					Nombre de la cuenta
+					<input type="text" name="nombreCuenta">
+					Nombre personal
+					<input type="text" name="nombre">
+					Email
+					<input type="text" name="email">
+					Genero <select name="genero">
+						<option disabled default>Introduzca un género</option>
+						<option value="masculino">Masculino</option>
+						<option value="femenino">Femenino</option>
+					</select>
+					Password
+					<input type="password" name="password">
+					Confirm password
+					<input type="password" name="confirmPasswd">
+					<input onclick="aniadirUsuario()" type="button" value="Enviar">
+				</form>
+			</main>
+			
+{% endblock %}
+{% block javaScript %}
+<script type="text/javascript">
+	function aniadirUsuario() {
+		let nombreCuenta = document.getElementsByName("nombreCuenta")[0].value;
+		let nombre = document.getElementsByName("nombre")[0].value;
+		let email = document.getElementsByName("email")[0].value;
+		let genero = document.getElementsByName("genero")[0].value;
+		let passwd = document.getElementsByName("password")[0].value;
+		let confirmPasswd = document.getElementsByName("confirmPasswd")[0].value;
+		let body = new FormData();
+		
+		body.append('nombre', nombre);
+		body.append('email', email);
+		body.append('genero', genero);
+		body.append('passwd', passwd);
+		body.append('confirmPasswd', confirmPasswd);
+		body.append('nombreCuenta', nombreCuenta);
+		body.append('tipoUsuario', 'anonimo');
+		
+		let cabecera = {
+			method: 'POST',
+			body: body
+		};
+		
+		fetch('./addUsuario.php', cabecera).then((res) => {
+			return res.text();
+		}).then((res) => {
+			console.log(res);
+			document.getElementById("main").innerHTML = `<div style="margin: 2%;">${res}</div>`;
+		});
+	}
+</script>
+{% endblock %}
