@@ -98,6 +98,7 @@ function removeComment(idComentario) {
 		return res.text();
 	}).then((texto) => {
 		console.log(`Texto: ${texto}`);
+		location.reload();
 	});
 }
 

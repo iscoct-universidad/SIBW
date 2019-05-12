@@ -35,32 +35,44 @@
 		}
 
 		/*
-		pre: Palabras clave debe ser mayor que uno
-	*/
+			pre: Palabras clave debe ser mayor que uno
+		*/
 	
-	public static function getViajesPorPalabrasClave($palabrasClave) {
-		$arrayPalabras = explode(",", test_string($palabrasClave, 256));
-		$tamArray = count($arrayPalabras);
-		
-		$consulta = "select * from Viajes where palabrasClave like '%{$arrayPalabras[0]}%'";
-		
-		for($i = 1; $i < $tamArray; $i++)
-			$consulta .= " or palabrasClave like '%{$arrayPalabras[$i]}%'";
-		
-		$consulta .= ";";
-
-		$consulta = BaseDeDatosViajes::consulta($consulta);
-			$viajes; 
-			for($i = 0; $i < count($consulta); ++$i) {
-			    $viajes[$i] = new ViajeVO($consulta[$i]);
-			}
+		public static function getViajesPorPalabrasClave($palabrasClave) {
+			$arrayPalabras = explode(",", test_string($palabrasClave, 256));
+			$tamArray = count($arrayPalabras);
 			
+			$consulta = "select * from Viajes where palabrasClave like '%{$arrayPalabras[0]}%'";
+			
+			for($i = 1; $i < $tamArray; $i++)
+				$consulta .= " or palabrasClave like '%{$arrayPalabras[$i]}%'";
+			
+			$consulta .= ";";
+
+			$consulta = BaseDeDatosViajes::consulta($consulta);
+				$viajes; 
+				for($i = 0; $i < count($consulta); ++$i) {
+					$viajes[$i] = new ViajeVO($consulta[$i]);
+				}
+				
+				return $viajes;
+				
 			return $viajes;
+		}
+		
+		public static function removeViaje($id) {
+			$sql = "delete from Viajes where id='$id';";
+			$eliminarComentarios = "delete from Comentarios where idViaje='$id';";
 			
-		return $viajes;
-	}
+			BaseDeDatosViajes::getConexion() -> query($eliminarComentarios);
+			
+			return BaseDeDatosViajes::getConexion() -> query($sql);
+		}
 
-
+		public static function setViaje($id, $ciudad, $fecha, $fechaPublicacion,
+					$fechaModificacion, $texto, $palabrasClave, $imagenes, $videos) {
+			
+		}
 	}
 
  ?>

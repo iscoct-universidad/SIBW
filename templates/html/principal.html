@@ -9,6 +9,11 @@
             	<a href="{{ event['href'] }}">
             		<img class="imagenes" src={{ event['imagenFuente'] }} alt="Viaje hacia {{ event['ciudad'] }}"/>
             		<p class="ciudad">{{ event.ciudad }}</p>
+            		
+            		{% if usuario and usuario.tipoUsuario == 'gestor' %}
+            			<button onclick="window.open('http://localhost:8080/editarEvento.php?id={{ event.id }}')" type="button">Editar</button>
+            			<button onclick="window.open('http://localhost:8080/eliminarEvento.php?id={{ event.id }}')" type="button">Eliminar</button>
+            		{% endif %}
             	</a>
             </div>
             {% endfor %}

@@ -13,7 +13,7 @@
 		$imagenes = $v -> getImagenes();
 		$imagenPrincipal = $imagenes[0];
 		
-		array_push($eventos, ['href' => "./evento.php?idViaje=".$v -> getId(), 'imagenFuente' => $imagenPrincipal, 'ciudad' => $v -> getCiudad() ]);
+		array_push($eventos, ['href' => "./evento.php?idViaje=".$v -> getId(), 'imagenFuente' => $imagenPrincipal, 'ciudad' => $v -> getCiudad(), 'id' => $v -> getId() ]);
 	}
 
 	$argumentos['eventos'] = $eventos;
