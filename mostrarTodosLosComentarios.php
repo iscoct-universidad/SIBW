@@ -13,7 +13,7 @@
 		$argumentos['comments'] = [];
 		
 		foreach($comentarios as $comment) {
-			$formatoComentario = ['nombreAutor' => $comment -> nombreAutor, 'texto' => $comment -> texto];
+			$formatoComentario = ['id' => $id, 'nombreAutor' => $comment -> nombreAutor, 'texto' => $comment -> texto];
 			array_push($argumentos['comments'], $formatoComentario);
 		}
 

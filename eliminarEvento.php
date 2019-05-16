@@ -11,10 +11,9 @@
 		
 		$argumentos['text'] = ($respuesta == 1) ? 
 			"Se eliminó con éxito" : "No se pudo eliminar el evento";
-		
-		renderizarPlantilla('templates/html/exitoEdicionUsuario.html', $argumentos);
 	} else {
-		echo "No puede realizar usted esa operación";
+		$argumentos['text'] = "No puede realizar usted esa operación";
 	}
 	
+	renderizarPlantilla('templates/html/mostrarMensajeInformativo.html', $argumentos);
 ?>

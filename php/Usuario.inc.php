@@ -17,6 +17,10 @@
 			return BaseDeDatosViajes::consulta("select * from Usuario where nombreCuenta=\"$nombreCuenta\" and passwd=\"$passwd\";")[0];
 		}
 		
+		public static function getUsuarios() {
+			return BaseDeDatosViajes::consulta("select * from Usuario;");
+		}
+		
 		public static function addUsuario($nombreCuenta, $passwd, $email,
 				$nombre, $genero, $tipoUsuario) {
 			
@@ -37,6 +41,20 @@
 			$sql = "update Usuario set nombre=\"$nombre\",genero=\"$genero\",passwd=\"$password\" where nombreCuenta=\"$nombreCuenta\";";
 			
 			return BaseDeDatosViajes::getConexion() -> query($sql);
+		}
+		
+		public static function setRol($nombreCuenta, $tipoUsuario) {
+			$sql = "update Usuario set tipoUsuario='$tipoUsuario' where nombreCuenta='$nombreCuenta';";
+			$numSuperusuarios = "select count(*) from Usuario where tipoUsuario='superusuario';";
+			$tipoUsuarioACambiar = "select tipoUsuario from Usuario where nombreCuenta='$nombreCuenta';";
+			
+			$numSuperusuarios = BaseDeDatosViajes::getConexion() -> query($numSuperusuarios) -> num_rows;
+			$tipoUsuarioACambiar = BaseDeDatosViajes::getConexion() -> query($tipoUsuarioACambiar) -> num_rows;
+			
+			if($numSuperusuarios == $tipoUsuarioACambiar && $numSuperusuarios == 1)
+				return false;
+			else
+				return BaseDeDatosViajes::getConexion() -> query($sql);
 		}
 	}
 	

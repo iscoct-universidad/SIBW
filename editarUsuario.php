@@ -37,6 +37,6 @@
 			
 		$argumentos['text'] = $texto;
 		
-		renderizarPlantilla('/templates/html/exitoEdicionUsuario.html', $argumentos);
+		renderizarPlantilla('/templates/html/mostrarMensajeInformativo.html', $argumentos);
 	}
 ?>

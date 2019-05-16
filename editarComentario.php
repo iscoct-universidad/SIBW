@@ -11,7 +11,7 @@
 	{
 		
 		if(Comentario::setComentario($_POST['idComentario'], $_POST['texto']) === TRUE)
-			$argumentos['text'] = "Se ha modificado el comentario con éxito";
+			$argumentos['text'] = "Mensaje modificado por el moderador";
 		else
 			$argumentos['text'] = "Ha odurrido algún error al intentar modificar el comentario";
 			

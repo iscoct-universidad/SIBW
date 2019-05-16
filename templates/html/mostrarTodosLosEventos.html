@@ -5,11 +5,11 @@
 {% block main %}
 	<main class="borde">
 		<ul>
-			{% for comment in comments %}
+			{% for event in events %}
 				<li>
-					<p>Identificador comentario: {{ comment.id }}</p>
-					<p>Nombre autor: {{ comment.nombreAutor }}</p>
-					<p>Texto: {{ comment.texto }}</p>
+					<p>Identificador evento: {{ event.id }}</p>
+					<p>Ciudad: {{ event.ciudad }}</p>
+					<p>Texto: {{ event.texto }}</p>
 				</li>
 			{% endfor %}
 		</ul>

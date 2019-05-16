@@ -4,12 +4,12 @@
 {% endblock %}
 {% block main %}
 	<main class="borde">
-		<form action="./editarEvento.php" method="post">
+		<form style="margin: 5%;" action="./editarEvento.php" method="post">
 			Id del viaje <input type="text" value="{{ event.id }}" name="id" readonly>
 			Ciudad <input type="text" name="ciudad">
 			Fecha <input type="date" name="fecha">
 			Fecha publicación <input type="date" name="fechaPublicacion">
-			Fecha modificación <input type="date" name="fechaModificacion">
+			Fecha modificación <input type="date" name="fechaModificacion"></br>
 			Texto <input type="text" name="texto">
 			Palabras clave <input type="text" name="palabrasClaves">
 			Imagenes <input type="text" name="imagenes">

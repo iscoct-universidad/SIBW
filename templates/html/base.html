@@ -17,11 +17,11 @@
                         <li class="elementoMenu"><a href="{{ nav.get_enlace() }}">{{ nav.get_titulo() }}</a></li>
                     {% endfor %}
                     
-                    {% if usuario and usuario['tipoUsuario'] == 'moderador' %}
+                    {% if (usuario) and (usuario['tipoUsuario'] == 'moderador' or usuario['tipoUsuario'] == 'superusuario') %}
                     	<li><a class="elementoMenu" href="./mostrarTodosLosComentarios.php">Mostrar todos los comentarios</a></li>
                     {% endif %}
                     
-                    {% if usuario and usuario['tipoUsuario'] == 'gestor' %}
+                    {% if (usuario) and (usuario['tipoUsuario'] == 'gestor' or usuario['tipoUsuario'] == 'superusuario') %}
                     	<li><a class="elementoMenu" href="./mostrarTodosLosEventos.php">Mostrar todos los eventos</a></li>
                     {% endif %}
                 </ul>
@@ -35,9 +35,11 @@
                         <li class="elementoMenu"><a href="{{ elemento.get_enlace() }}">{{ elemento.get_titulo() }}</a></li>
                     {% endfor %}
                     
-                    {% if usuario and usuario.tipoUsuario == 'moderador' %}
+                    {% if (usuario) and (usuario.tipoUsuario == 'moderador' or usuario['tipoUsuario'] == 'superusuario') %}
                     	<li class="elementMenu"><a href="./buscarComentario.php">Buscar comentario</a></li>
-                    {% elseif usuario and usuario.tipoUsuario == 'gestor' %}
+                    {% endif %}
+                    
+                    {% if (usuario) and (usuario.tipoUsuario == 'gestor' or usuario['tipoUsuario'] == 'superusuario')  %}
                     	<li class="elementMenu"><a href="./buscarEvento.php">Buscar evento</a></li>
                     	<li class="elementMenu"><a href="./eliminarPalabraClave.php">Eliminar etiqueta</a></li>
                     	<li class="elementMenu"><a href="./addPalabraClave.php">Añadir etiqueta</a></li>
@@ -45,6 +47,10 @@
                     	<li class="elementMenu"><a href="./editarEvento.php">Editar evento</a></li>
                     	<li class="elementMenu"><a href="./eliminarFotografiaEvento.php">Eliminar fotografía evento</a></li>
                     	<li class="elementMenu"><a href="./addFotografiaEvento.php">Añadir fotografia evento</a></li>
+                    {% endif %}
+                    
+                    {% if usuario and usuario.tipoUsuario == 'superusuario' %}
+                    	<li class="elementMenu"><a href="./modificarRoles.php">Modificar roles</a></li>
                     {% endif %}
                 </ul>
             </nav>
@@ -61,12 +67,6 @@
 				              
 				          <button type="submit">Login</button>
 				        </div>
-				        <!--
-				        <div class="container" style="background-color:#f1f1f1">
-				          <button type="button" class="cancelbtn">Cancel</button>
-				          <span class="psw">Forgot <a href="#">password?</a></span>
-				        </div>
-				      -->
 				      </form>
 				    </section>
 		        {% else %}

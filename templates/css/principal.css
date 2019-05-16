@@ -24,3 +24,8 @@ p.ciudad {
     display: grid;
     grid-template-columns: 20% 80%;
 }
+
+#evento {
+	margin: 5%;
+	padding: 5%;
+}

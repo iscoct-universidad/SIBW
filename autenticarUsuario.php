@@ -13,8 +13,9 @@
 			setcookie("user", $nombreCuenta, time() + 10000000);
 			setcookie("pass", $password, time() + 100000000);
 			setCookie("tipoUsuario", $usuario -> tipoUsuario, time() + 10000000);
-		} else 
+		} else {
 			echo "Ocurrió un error";
+		}
 	}
 	
 	require_once './index.php';

@@ -1,0 +1,28 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="templates/css/principal.css"/>
+{% endblock %}
+{% block main %}
+	<main class="borde">
+		<div style="margin: 5%;">
+			<ul>
+				{% for usuario in usuarios %}
+					<form action="./modificarRoles.php" method="post">
+						<li>
+							Nombre cuenta: {{ usuario.nombreCuenta }}
+							<input style="display: none;" type="text" name="nombreCuenta" value="{{ usuario.nombreCuenta }}">
+							<p>Tipo usuario: {{ usuario.tipoUsuario }}</p>
+							<select name="tipoUsuario">
+								<option value="registrado">Registrado</option>
+								<option value="moderador">Moderador</option>
+								<option value="gestor">Gestor</option>
+								<option value="superusuario">Superusuario</option>
+							</select>
+							<input type="submit" value="Enviar"/>
+						</li>
+					</form>
+				{% endfor %}
+			</ul>
+		</div>
+	</main>
+{% endblock %}

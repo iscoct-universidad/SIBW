@@ -6,7 +6,7 @@
 	$argumentos = [];
 	prepararArgumentos($argumentos);
 	
-	$viajes = Viaje::getViajes();
+	$viajes = Viaje::getObjetosViajes();
 	$eventos = [];
 	
 	foreach($viajes as $v) {
