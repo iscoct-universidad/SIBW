@@ -135,6 +135,14 @@
 			
 			return BaseDeDatosViajes::getConexion() -> query($sql);
 		}
+		
+		public static function editarViaje($id, $ciudad, $fecha, $fechaPublicacion,
+			$fechaModificacion, $texto, $palabrasClave, $rutasImagenes)
+		{
+			$sql = "update Viajes set ciudad='$ciudad',fecha='$fecha',fechaPublicacion='$fechaPublicacion',fechaModificacion='$fechaModificacion',texto='$texto',palabrasClave='$palabrasClave',imagenes='$rutasImagenes' where id='$id';";
+			
+			return BaseDeDatosViajes::getConexion() -> query($sql);
+		}
 	}
 
  ?>

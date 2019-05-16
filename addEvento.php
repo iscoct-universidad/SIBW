@@ -19,14 +19,12 @@
 		
 		$operacionCorrecta = Viaje::addViaje($ciudad, $fecha, $fechaPublicacion, $fechaModificacion, $texto, $palabrasClaves, $rutasImagenes);
 		
-		echo "Resultado de añadir: " . var_dump($operacionCorrecta);
-		
 		$argumentos['text'] = ($operacionCorrecta) ? "Se ha realizado la operación con éxito" : "Ha ocurrido algún error en la operación de addViaje";
 		
-		$plantilla = "./templates/html/mensajeInformativo.html";
+		$plantilla = "templates/html/mostrarMensajeInformativo.html";
 	} else {
 		$argumentos['text'] = "Está intentando acceder con un método http no permitido";
-		$plantilla = "./templates/html/mensajeInformativo.html";
+		$plantilla = "templates/html/mostrarMensajeInformativo.html";
 	}
 	
 	renderizarPlantilla($plantilla, $argumentos);
