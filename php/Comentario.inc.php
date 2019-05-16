@@ -14,6 +14,16 @@
 			return BaseDeDatosViajes::consulta("select * from PalabrasProhibidas");
 		}
 	
+		public static function getComentarioPorIdComentario($idComentario) {
+			$consulta = "select * from Comentarios where idComentario='$idComentario';";
+			
+			return BaseDeDatosViajes::consulta($consulta)[0];
+		}
+		
+		/*
+			Devuelve sólo un comentario
+		*/
+		
 		public static function getComentarios($idViaje) {
 			$consulta = BaseDeDatosViajes::consulta("select * from Comentarios where idViaje=\"$idViaje\" ;");
 
@@ -23,6 +33,14 @@
 			}
 			
 			return $comentarios;
+		}
+		
+		/*
+			Devuelve todos los comentarios
+		*/
+		
+		public static function getComments() {
+			return BaseDeDatosViajes::consulta("select * from Comentarios;");
 		}
 
 		public static function addComentario($idViaje, $nombreAutor, $texto, $tiempo, $hora, $fecha){
@@ -54,6 +72,12 @@
 		
 		public static function removeComentario($idComentario) {
 			$sql = "delete from Comentarios where idComentario=\"$idComentario\";";
+			
+			return BaseDeDatosViajes::getConexion() -> query($sql);
+		}
+		
+		public static function setComentario($idComentario, $texto) {
+			$sql = "update Comentarios set texto='$texto' where idComentario='$idComentario';";
 			
 			return BaseDeDatosViajes::getConexion() -> query($sql);
 		}

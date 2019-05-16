@@ -102,6 +102,12 @@ function removeComment(idComentario) {
 	});
 }
 
+function mostrarEdicionComentario(idComentario) {
+	let bloque = document.getElementById("edicion" + idComentario);
+	
+	bloque.style.display = 'block';
+}
+
 function guardarBorrador() {
 	localStorage.nombre = document.getElementsByName("name")[0].value;
 	localStorage.email = document.getElementsByName("email")[0].value;

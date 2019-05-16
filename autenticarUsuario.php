@@ -12,6 +12,7 @@
 		if(count($usuario) == 1) {
 			setcookie("user", $nombreCuenta, time() + 10000000);
 			setcookie("pass", $password, time() + 100000000);
+			setCookie("tipoUsuario", $usuario -> tipoUsuario, time() + 10000000);
 		} else 
 			echo "Ocurrió un error";
 	}

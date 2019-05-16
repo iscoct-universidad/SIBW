@@ -1,0 +1,16 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="templates/css/editarUsuario.css"/>
+{% endblock %}
+{% block main %}
+	<main class="borde">
+		<ul>
+			{% for comment in comments %}
+				<li>
+					<p>Nombre autor: {{ comment.nombreAutor }}</p>
+					<p>Texto: {{ comment.texto }}</p>
+				</li>
+			{% endfor %}
+		</ul>
+	</main>
+{% endblock %}

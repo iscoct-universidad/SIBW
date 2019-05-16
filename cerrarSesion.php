@@ -15,5 +15,5 @@
 	prepararArgumentos($argumentos);
 	$argumentos['text'] = $texto;
 	
-	renderizarPlantilla('/templates/html/cierreSesion.html', $argumentos);
+	renderizarPlantilla('/templates/html/mostrarMensajeInformativo.html', $argumentos);
 ?>

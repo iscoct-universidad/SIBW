@@ -41,8 +41,6 @@
 	
 	$comentarios = Comentario::getComentarios($idViaje);
 
-	//var_dump($comentarios);
-
 	$comments = [];
 	if($comentarios)
 	foreach($comentarios as $com) {

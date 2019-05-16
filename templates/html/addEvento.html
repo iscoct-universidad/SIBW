@@ -1,0 +1,16 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="templates/css/evento.css"/>
+{% endblock %}
+{% block main %}
+	<main class="borde">
+		<form action="./addEvento.php" method="post">
+			Ciudad <input type="text" name="ciudad"/>
+			Fecha <input type="date" name="fecha"/>
+			Texto <input type="text" name="texto"/>
+			Palabras Claves <input type="text" name="palabrasClaves"/>
+			Rutas de las imagenes <input type="text" name="imagenes"/>
+			<input type="submit" value="Enviar"/>
+		</form>
+	</main>
+{% endblock %}

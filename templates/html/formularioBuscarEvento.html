@@ -1,0 +1,10 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+    <link rel="stylesheet" href="templates/css/evento.css"/>
+{% endblock %}
+{% block main %}
+	<form action="./buscarEvento.php">
+		Id viaje<input type="text" name="idViaje">
+		<input type="submit" value="Buscar">
+	</form>
+{% endblock %}

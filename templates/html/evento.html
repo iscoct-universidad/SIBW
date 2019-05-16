@@ -60,6 +60,13 @@
                         		usuario['tipoUsuario'] != registrado %}
                         	<button type="button" onclick="mostrarEdicionComentario({{ com['idComentario'] }})">Editar</button>
                         	<button type="button" onclick="removeComment({{ com['idComentario'] }})">Eliminar</button>
+                        	<div id="edicion{{ com['idComentario'] }}" style="display: none;">
+                        		<form method="post" action="./editarComentario.php">
+	                        		<input type="text" name="texto">
+	                        		<input type="text" name="idComentario" value="{{ com['idComentario'] }}" style="display: none;">
+	                        		<input type="submit" value="Guardar edición">
+                        		</form>
+                        	</div>
                         {% endif %}
                     {% endfor %}
                 </div>

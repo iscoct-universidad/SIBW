@@ -1,0 +1,11 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="templates/css/evento.css"/>
+{% endblock %}
+{% block main %}
+	<ul>
+		{% for operacionDisponible in operacionesDisponibles %}
+			<li>{{ operacionDisponible }}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

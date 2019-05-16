@@ -1,0 +1,9 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+    <link rel="stylesheet" href="templates/css/evento.css"/>
+{% endblock %}
+{% block main %}
+	<p>Ciudad: {{ ciudad }}</p>
+	<p>Texto: {{ texto }}</p>
+	<p>Fecha publicación: {{ fechaPublicacion }}</p>
+{% endblock %}

@@ -16,6 +16,14 @@
                     {% for nav in navegacionSuperior %}
                         <li class="elementoMenu"><a href="{{ nav.get_enlace() }}">{{ nav.get_titulo() }}</a></li>
                     {% endfor %}
+                    
+                    {% if usuario and usuario['tipoUsuario'] == 'moderador' %}
+                    	<li><a class="elementoMenu" href="./mostrarTodosLosComentarios.php">Mostrar todos los comentarios</a></li>
+                    {% endif %}
+                    
+                    {% if usuario and usuario['tipoUsuario'] == 'gestor' %}
+                    	<li><a class="elementoMenu" href="./mostrarTodosLosEventos.php">Mostrar todos los eventos</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </header>
@@ -26,6 +34,18 @@
                     {% for elemento in navegacionLateral %}
                         <li class="elementoMenu"><a href="{{ elemento.get_enlace() }}">{{ elemento.get_titulo() }}</a></li>
                     {% endfor %}
+                    
+                    {% if usuario and usuario.tipoUsuario == 'moderador' %}
+                    	<li class="elementMenu"><a href="./buscarComentario.php">Buscar comentario</a></li>
+                    {% elseif usuario and usuario.tipoUsuario == 'gestor' %}
+                    	<li class="elementMenu"><a href="./buscarEvento.php">Buscar evento</a></li>
+                    	<li class="elementMenu"><a href="./eliminarPalabraClave.php">Eliminar etiqueta</a></li>
+                    	<li class="elementMenu"><a href="./addPalabraClave.php">Añadir etiqueta</a></li>
+                    	<li class="elementMenu"><a href="./addEvento.php">Añadir evento</a></li>
+                    	<li class="elementMenu"><a href="./editarEvento.php">Editar evento</a></li>
+                    	<li class="elementMenu"><a href="./eliminarFotografiaEvento.php">Eliminar fotografía evento</a></li>
+                    	<li class="elementMenu"><a href="./addFotografiaEvento.php">Añadir fotografia evento</a></li>
+                    {% endif %}
                 </ul>
             </nav>
             <div id="datosSesion">
