@@ -6,7 +6,7 @@
 	prepararArgumentos($argumentos);
 	$plantilla = "";
 	
-	if($_SERVER['REQUEST_METHOD'] == 'GET' && $_COOKIE['tipoUsuario'] == 'gestor') {
+	if($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
 		if(isset($_GET['idViaje'])) {
 			$viaje = Viaje::getViajes($_GET['idViaje'])[0];

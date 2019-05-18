@@ -1,0 +1,56 @@
+{% extends "templates/html/base.html" %}
+{% block css %}
+        <link rel="stylesheet" href="templates/css/buscar.css"/>
+{% endblock %}
+{% block main %}
+	<main class="borde">
+		<form id="formulario" action="./buscarPorPalabrasClaves.php">
+			Buscar: <input onkeyup="busquedaAsincrona(event)" id="texto" name="texto" type="text">
+		</form>
+		
+		<div>
+			<ul id="lista">
+			</ul>
+		</div>
+	</main>
+{% endblock %}
+{% block javaScript %}
+	<script type="text/javascript">
+		function busquedaAsincrona(event) {
+			const texto = document.getElementById("texto").value;
+			const body = new FormData();
+			
+			body.append("texto", texto);
+			
+			fetch('http://localhost:8080/busquedaAsincrona.php', {
+				method: 'POST',
+				body: body
+			}).then((res) => {
+				return res.json();
+			}).then((texto) => {
+				const array = texto;
+				const lista = document.getElementById("lista");
+				let elementoLista;
+				let enlace;
+				let ciudad;
+				
+				while(lista.childNodes.length != 0) {
+					let child = lista.childNodes[0];
+					
+					lista.removeChild(child);
+				}
+				
+				for(let tupla of array) {
+					ciudad = document.createTextNode(tupla.ciudad);
+					enlace = document.createElement("a");
+					enlace.href = `./evento.php?idViaje=${tupla.ciudad}`;
+					elementoLista = document.createElement("li");
+					
+					enlace.appendChild(ciudad);
+					elementoLista.appendChild(enlace);
+					lista.appendChild(elementoLista);
+				}
+			});
+		}
+	</script>
+{% endblock %}

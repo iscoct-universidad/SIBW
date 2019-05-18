@@ -31,6 +31,7 @@
             <aside class="borde" id="navegacionLateral">
             <nav>
                 <ul id="listaLateral" class="flex-container flex-direction-column">
+                	<li class="elementMenu"><a href="./buscarEvento.php">Buscar evento</a></li>
                     {% for elemento in navegacionLateral %}
                         <li class="elementoMenu"><a href="{{ elemento.get_enlace() }}">{{ elemento.get_titulo() }}</a></li>
                     {% endfor %}
@@ -40,13 +41,13 @@
                     {% endif %}
                     
                     {% if (usuario) and (usuario.tipoUsuario == 'gestor' or usuario['tipoUsuario'] == 'superusuario')  %}
-                    	<li class="elementMenu"><a href="./buscarEvento.php">Buscar evento</a></li>
                     	<li class="elementMenu"><a href="./eliminarPalabraClave.php">Eliminar etiqueta</a></li>
                     	<li class="elementMenu"><a href="./addPalabraClave.php">Añadir etiqueta</a></li>
                     	<li class="elementMenu"><a href="./addEvento.php">Añadir evento</a></li>
                     	<li class="elementMenu"><a href="./editarEvento.php">Editar evento</a></li>
                     	<li class="elementMenu"><a href="./eliminarFotografiaEvento.php">Eliminar fotografía evento</a></li>
                     	<li class="elementMenu"><a href="./addFotografiaEvento.php">Añadir fotografia evento</a></li>
+                    	<li class="elementMenu"><a href="./modificarPublicadoEvento.php">Modificar publicado de evento</a></li>
                     {% endif %}
                     
                     {% if usuario and usuario.tipoUsuario == 'superusuario' %}

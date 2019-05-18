@@ -10,8 +10,8 @@ create table if not exists Navegacion (
 );
 
 insert into Navegacion values(
-	'Inicio, Antes de viajar,Galeria, Buscar, Sobre Nosotros, Operaciones Disponibles',
-	'./index.php,./pagina.php?idPagina=2,./galeria.php, ./buscar.php, ./pagina.php?idPagina=1,./operacionesDisponibles.php',
+	'Inicio, Antes de viajar,Galeria, Buscar, Sobre Nosotros, Operaciones Disponibles, Busqueda asincrona',
+	'./index.php,./pagina.php?idPagina=2,./galeria.php, ./buscar.php, ./pagina.php?idPagina=1,./operacionesDisponibles.php,./busquedaAsincrona.php',
 	'Superior',
 	'Publico'
 );

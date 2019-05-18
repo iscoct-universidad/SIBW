@@ -152,6 +152,24 @@
 			
 			return BaseDeDatosViajes::getConexion() -> query($sql);
 		}
+		
+		public static function editarPublicadoViaje($id, $publicado) {
+			$sql = "update Viajes set publicado=$publicado where id='$id';";
+			
+			return BaseDeDatosViajes::getConexion() -> query($sql);
+		}
+		
+		public static function busquedaTituloDescripcion($texto) {
+			$sql = "select id,ciudad from Viajes where texto like '%$texto%' or ciudad like '%$texto%';";
+			
+			return BaseDeDatosViajes::consulta($sql);
+		}
+		
+		public static function busquedaTituloDescripcionRestringida($texto) {
+			$sql = "select id,ciudad from Viajes where texto like '%$texto%' or ciudad like '%$texto%' and publicado=1;";
+			
+			return BaseDeDatosViajes::consulta($sql);
+		}
 	}
 
  ?>

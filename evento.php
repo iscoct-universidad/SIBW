@@ -18,21 +18,22 @@
 	}
 
 	$viaje = Viaje::getViajes($idViaje);
-	$imagenes = $viaje[0] -> getImagenes();
+	$viaje = new ViajeVO($viaje[0]);
+	$imagenes = $viaje -> getImagenes();
 	
 	$imagenSecundaria1 = $imagenes[1];
 	$imagenSecundaria2 = $imagenes[2];
-	$video = $viaje[0] -> getVideos();
+	$video = $viaje -> getVideos();
 	
 	
-	$datosViajeAEnviar = [  "ciudad" => $viaje[0] -> getCiudad(),
+	$datosViajeAEnviar = [  "ciudad" => $viaje -> getCiudad(),
 							"imagenSecundaria1" => $imagenSecundaria1,
 							"imagenSecundaria2" => $imagenSecundaria2,
-							"texto" => $viaje[0] -> getTexto(), 
-							"fecha" => $viaje[0] -> getFecha(),
-							"fechaPublicacion" => $viaje[0] -> getFechaPublicacion(),
-							"fechaModificacion" => $viaje[0] -> getFechaModificacion(),
-							"id" => $viaje[0] -> getId() ];
+							"texto" => $viaje -> getTexto(), 
+							"fecha" => $viaje -> getFecha(),
+							"fechaPublicacion" => $viaje -> getFechaPublicacion(),
+							"fechaModificacion" => $viaje -> getFechaModificacion(),
+							"id" => $viaje -> getId() ];
 							
 	if( $video[0][0] ) {
 		$datosViajeAEnviar['video'] = $video[0][0];
