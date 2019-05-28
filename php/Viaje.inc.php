@@ -166,7 +166,7 @@
 		}
 		
 		public static function busquedaTituloDescripcionRestringida($texto) {
-			$sql = "select id,ciudad from Viajes where texto like '%$texto%' or ciudad like '%$texto%' and publicado=1;";
+			$sql = "select id,ciudad from Viajes where (texto like '%$texto%' or ciudad like '%$texto%') and publicado=1;";
 			
 			return BaseDeDatosViajes::consulta($sql);
 		}

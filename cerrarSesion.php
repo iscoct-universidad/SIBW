@@ -6,6 +6,7 @@
 	if(isset($_COOKIE['user']) && isset($_COOKIE['pass'])) {
 		setcookie('user', $_POST['user'], time() - 10);
 		setcookie('pass', $_POST['pass'], time() - 10);
+		setcookie('tipoUsuario', time() - 10);
 		
 		$texto = "Ha cerrado sesión correctamente";
 	} else
